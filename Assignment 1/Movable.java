@@ -3,7 +3,7 @@ public abstract class Movable implements IPositionable {
     private double dirY;
     private double posX;
     private double posY;
-
+//hahaha
     public Movable(double dirX, double dirY, double posX, double posY) {
         this.dirX = dirX;
         this.dirY = dirY;
