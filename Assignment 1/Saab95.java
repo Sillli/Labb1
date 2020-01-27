@@ -28,6 +28,13 @@ public class Saab95 extends Car {
         turboOn = false;
     }
 
+    public void incrementSpeed(double amount){
+        incrementHelper(amount);
+    }
+    public void decrementSpeed(double amount){
+        decrementHelper(amount);
+    }
+
 
 
 

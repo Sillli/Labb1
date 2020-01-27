@@ -5,7 +5,7 @@ public abstract class Car {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
+    public double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
 
@@ -35,7 +35,7 @@ public abstract class Car {
         this.modelName = modelName;
     }
 
-    public Car() {
+    public Car(){
 
     }
 
@@ -68,14 +68,22 @@ public abstract class Car {
 
     public abstract double speedFactor();
 
-    public  void incrementSpeed(double amount){
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    public  abstract void incrementSpeed(double amount);
+
+    public double incrementHelper(double amount){
+        double increment;
+        increment = (getCurrentSpeed() + speedFactor() * amount);
+        return increment;
     }
 
-    public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
+    public abstract void decrementSpeed(double amount);
 
+
+    public double decrementHelper(double amount){
+        double decrement;
+        decrement = (getCurrentSpeed() - speedFactor() * amount);
+        return decrement;
+    }
     /*public void setTurboOff(){
         turboOn = false;
     }*/
