@@ -1,7 +1,7 @@
 
 import java.awt.*;
 
-public abstract class Car extends Vehicle {
+public abstract class Car {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -36,7 +36,6 @@ public abstract class Car extends Vehicle {
     }
 
     public Car(){
-        super();
 
     }
 
@@ -78,7 +77,6 @@ public abstract class Car extends Vehicle {
     }
 
     public abstract void decrementSpeed(double amount);
-
 
     public double decrementHelper(double amount){
         double decrement;
