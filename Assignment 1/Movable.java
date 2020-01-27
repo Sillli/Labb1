@@ -1,5 +1,4 @@
-public class Movable {
-
+public abstract class Movable implements IPositionable {
     private double dirX;
     private double dirY;
     private double posX;
@@ -17,13 +16,6 @@ public class Movable {
         setPosY(getPosY() + dirY);
     }
 
-    public void turnLeft(){
-
-    }
-
-    public void turnRight(){
-
-    }
 
     public void setDirX(double dirX) {
         this.dirX = dirX;
