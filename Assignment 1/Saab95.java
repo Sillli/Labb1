@@ -4,7 +4,6 @@ public class Saab95 extends Car {
     private boolean turboOn;
 
     public Saab95() {
-
         setNrDoors(2);
         setColor(Color.red);
         setEnginePower(125);
@@ -27,10 +26,11 @@ public class Saab95 extends Car {
     public void setTurboOff() {
         turboOn = false;
     }
-
+    @Override
     public void incrementSpeed(double amount){
         incrementHelper(amount);
     }
+    @Override
     public void decrementSpeed(double amount){
         decrementHelper(amount);
     }
