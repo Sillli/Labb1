@@ -1,7 +1,7 @@
 
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car extends Vehicle{
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -36,12 +36,34 @@ public abstract class Car {
     }
 
     public Car(){
+        super(1,0,0,0);
+
+    }
+    @Override
+    public void move(){
+        double forwardMovment;
+        if(getDirX()!= 0){
+            forwardMovment =Math.abs(getDirX()*getCurrentSpeed());
+        }else if(getDirY()!= 0){
+            forwardMovment = Math.abs(getDirY()*getCurrentSpeed());
+        }
 
     }
 
+    @Override
+    public void turnLeft(){
+        setDirX(0);
+        setDirY(1);
+    }
+    @Override
+    public void turnRight(){
+        setDirX(0);
+        setDirY(-1);
+    }
     public int getNrDoors(){
         return nrDoors;
     }
+
     public double getEnginePower(){
         return enginePower;
     }
@@ -83,9 +105,6 @@ public abstract class Car {
         decrement = (getCurrentSpeed() - speedFactor() * amount);
         return decrement;
     }
-    /*public void setTurboOff(){
-        turboOn = false;
-    }*/
 
     public void gas(double amount){
         incrementSpeed(amount);
