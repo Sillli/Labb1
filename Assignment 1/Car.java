@@ -66,11 +66,9 @@ public abstract class Car {
         currentSpeed = 0;
     }
 
-    public double speedFactor(){
-        return enginePower * 0.01;
-    }
+    public abstract double speedFactor();
 
-    public void incrementSpeed(double amount){
+    public  void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
