@@ -66,19 +66,45 @@ public abstract class Car extends Vehicle{
 
    @Override
    public void move(){
-      setPosX(getPosX()+getDirX()*getCurrentSpeed());
-      setPosY(getPosY()+getDirY()*getCurrentSpeed());
+       if(getDirX()!= 0) {
+           setPosX(getPosX() + getDirX() * getCurrentSpeed());
+       }else if(getDirY()!= 0) {
+           setPosY(getPosY() + getDirY() * getCurrentSpeed());
+       }
    }
 
    @Override
-   public void turnLeft(){
-    setDirX(-1);
+   public void turnLeft() {
+       if (getDirX() == -1 && getDirY() == 0) {
+           setDirX(0);
+           setDirY(-1);
+       }else if (getDirX() == 0 && getDirY() == -1) {
+           setDirX(1);
+           setDirY(0);
+       }else if (getDirX() == 1 && getDirY() == 0) {
+           setDirX(0);
+           setDirY(1);
+       }else if(getDirX() == 0 && getDirY() == 1){
+           setDirX(-1);
+           setDirY(0);
+       }
    }
 
    @Override
    public void turnRight(){
-       setDirX(1);
-   }
+       if (getDirX() == -1 && getDirY() == 0) {
+           setDirX(0);
+           setDirY(1);
+       }else if (getDirX() == 0 && getDirY() == -1) {
+           setDirX(-1);
+           setDirY(0);
+       }else if (getDirX() == 1 && getDirY() == 0) {
+           setDirX(0);
+           setDirY(-1);
+       }else if(getDirX() == 0 && getDirY() == 1){
+           setDirX(1);
+           setDirY(0);
+       }   }
 
 
 
