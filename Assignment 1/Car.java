@@ -39,30 +39,7 @@ public abstract class Car extends Vehicle{
         super(0,1,0,0);
 
     }
-   /* @Override
-    public void move(){
-        double forwardMovment;
-        if(getDirX()!= 0){
-            forwardMovment =Math.abs(getDirX()*getCurrentSpeed());
-        }else if(getDirY()!= 0){
-            forwardMovment = Math.abs(getDirY()*getCurrentSpeed());
-        }
 
-    }
-
-    @Override
-    public void turnLeft(){
-        setDirX(0);
-        setDirY(1);
-    }
-    @Override
-    public void turnRight(){
-        setDirX(0);
-        setDirY(-1);
-    }
-    */
-
-   //Försökte fixa ovanstående
 
    @Override
    public void move(){
