@@ -1,11 +1,11 @@
 public abstract class Vehicle implements Movable {
 
-    private double dirX;
-    private double dirY;
-    private double posX;
-    private double posY;
+    private int dirX;
+    private int dirY;
+    private int posX;
+    private int posY;
 
-    public Vehicle(int dirX, int dirY, double posX, double posY) {
+    public Vehicle(int dirX, int dirY, int posX, int posY) {
         this.dirX = dirX;
         this.dirY = dirY;
         this.posX = posX;
@@ -20,11 +20,11 @@ public abstract class Vehicle implements Movable {
         this.dirY = dirY;
     }
 
-    public void setPosX(double posX) {
+    public void setPosX(int posX) {
         this.posX = posX;
     }
 
-    public void setPosY(double posY) {
+    public void setPosY(int posY) {
         this.posY = posY;
     }
 
@@ -43,6 +43,8 @@ public abstract class Vehicle implements Movable {
     public double getPosY() {
         return posY;
     }
+
+
 
 
 }
