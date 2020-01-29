@@ -9,10 +9,7 @@ public abstract class Car extends Vehicle {
     private Color color; // Color of the car
     private String modelName; // The car model name
 
-/*
-    public final static double trimFactor = 1.25;
-    public boolean turboOn;
-    */
+
 
     public Car() {
         super(0, 1, 0, 0);
