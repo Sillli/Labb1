@@ -1,6 +1,7 @@
 
 import java.awt.*;
 
+
 public abstract class Car extends Vehicle {
 
     private int nrDoors; // Number of doors on the car
@@ -8,7 +9,6 @@ public abstract class Car extends Vehicle {
     public double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-
 
 
     public Car() {
