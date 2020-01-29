@@ -104,7 +104,8 @@ public abstract class Car extends Vehicle{
        }else if(getDirX() == 0 && getDirY() == 1){
            setDirX(1);
            setDirY(0);
-       }   }
+       }
+   }
 
 
 
