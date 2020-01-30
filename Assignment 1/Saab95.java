@@ -56,7 +56,7 @@ public class Saab95 extends Car {
      */
     @Override
     public void incrementSpeed(double amount) {
-        incrementHelper(amount);
+        currentSpeed = Math.min(incrementHelper(amount), getEnginePower());
     }
 
     /**
