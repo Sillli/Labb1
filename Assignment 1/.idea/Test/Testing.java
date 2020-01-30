@@ -19,10 +19,18 @@ public class Testing {
     }
 
     @Test
-    public void testincrementSpeed(){
+    public void testincrementSpeedVolvo(){
         volvo.setCurrentSpeed(10);
         volvo.incrementSpeed(10);
         assertTrue(volvo.getCurrentSpeed()==22.5);
+
+    }
+
+    @Test
+    public void testDecrementSpeedVolvo (){
+        volvo.setCurrentSpeed(10);
+        volvo.decrementSpeed(10);
+        assertTrue(volvo.getCurrentSpeed()== 0);
 
     }
 
