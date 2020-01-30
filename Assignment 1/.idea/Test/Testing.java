@@ -60,8 +60,35 @@ public class Testing {
     }
 
 
+    @Test
+    public void testTurnLeftCarVolvo(){
+        volvo.setDirX(0);
+        volvo.setDirY(1);
 
+        volvo.turnLeft();
 
+        System.out.println(volvo.getDirX());
+        System.out.println(volvo.getDirY());
+        assertTrue(volvo.getDirX()==-1 && volvo.getDirY()==0);
+    }
 
+    @Test
+    public void testTurnRightCarVolvo(){
+        volvo.setDirX(0);
+        volvo.setDirY(1);
+
+        volvo.turnRight();
+
+        System.out.println(volvo.getDirX());
+        System.out.println(volvo.getDirY());
+        assertTrue(volvo.getDirX()== 1 && volvo.getDirY()==0);
+    }
+
+    @Test
+    public void testGetNrDoorsCarVolvoSaab(){
+        System.out.println(volvo.getNrDoors());
+        System.out.println(saab.getNrDoors());
+        assertTrue(volvo.getNrDoors()==4 && saab.getNrDoors()== 2);
+    }
 
 }
