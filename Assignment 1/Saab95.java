@@ -39,6 +39,7 @@ public class Saab95 extends Car {
     /**
      * The turbo has the value 1.
      * If the turbo is on and the turbo's value equals 1,3 then it returns the speedfactor.
+     *
      * @return the value of the speedfactor as a double.
      */
     @Override
@@ -50,6 +51,7 @@ public class Saab95 extends Car {
 
     /**
      * Uses the helperfunction incrementHelper to increase the value (amount).
+     *
      * @param amount is the value that we want to increase.
      */
     @Override
@@ -59,6 +61,7 @@ public class Saab95 extends Car {
 
     /**
      * Uses the helperfunction decrementHelper to decrease the value (amount).
+     *
      * @param amount is the value that we want to decrease.
      */
 
