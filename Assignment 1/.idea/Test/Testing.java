@@ -98,8 +98,8 @@ public class Testing {
     public void testTurnRightCarVolvo() {
         volvo.setDirX(0);
         volvo.setDirY(1);
-
         volvo.turnRight();
+        assertTrue(volvo.getDirX() == 1 && volvo.getDirY() == 0);
     }
 
     @Test
@@ -129,15 +129,6 @@ public class Testing {
         System.out.println(saab.getNrDoors());
         assertTrue(volvo.getNrDoors() == 4 && saab.getNrDoors() == 2);
     }
-
-     /* @Test
-    public void testDecrementSpeedSaab() {
-        saab.setCurrentSpeed(12);
-        saab.decrementSpeed(12);
-        System.out.print(saab.getCurrentSpeed());
-        TestCase.assertTrue(saab.getCurrentSpeed() == 0);
-
-    }*/
 
     @Test
     public void testMoveVolvo(){
