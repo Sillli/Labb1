@@ -95,6 +95,11 @@ public abstract class Car extends Vehicle {
      * @param amount in the form of a double
      */
     public void gas(double amount) {
+        if (amount >=1){
+            amount=1;
+        }else if (amount <= 0){
+            amount=0;
+        }
         incrementSpeed(amount);
     }
 
@@ -104,6 +109,11 @@ public abstract class Car extends Vehicle {
      * @param amount in the form of a double
      */
     public void brake(double amount) {
+        if (amount >=1){
+            amount =1;
+        }else if (amount <= 0){
+            amount=0;
+        }
         decrementSpeed(amount);
     }
 
