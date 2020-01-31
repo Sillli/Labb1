@@ -21,15 +21,6 @@ public class Testing {
     }
 
     @Test
-    public void testSetTurboOff() {
-        saab.setTurboOff();
-        saab.setCurrentSpeed(10);
-        saab.incrementSpeed(10);
-        System.out.println(saab.getCurrentSpeed());
-        assertTrue(saab.getCurrentSpeed() == 22.5);
-    }
-
-    @Test
     public void testSpeedFactor() {
         assertTrue(volvo.speedFactor() == 1.25);
     }
@@ -90,7 +81,6 @@ public class Testing {
 
     }
 
-
     @Test
     public void testTurnLeftCarVolvo() {
         volvo.setDirX(0);
@@ -110,26 +100,33 @@ public class Testing {
         volvo.turnRight();
         assertTrue(volvo.getDirX() == 1 && volvo.getDirY() == 0);
     }
+        @Test
+        public void testIncrementSpeedSaab(){
+            saab.setTurboOn();
+            saab.setCurrentSpeed(10);
+            saab.incrementSpeed(10);
+            //System.out.println(saab.getCurrentSpeed());
+            assertTrue(saab.getCurrentSpeed() == 26.25);
 
-    @Test
-    public void testIncrementSpeedSaab() {
-        saab.setTurboOn();
+        }
+        @Test
+        public void testSetTurboOff(){
+        saab.setTurboOff();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
-        //System.out.println(saab.getCurrentSpeed());
-        assertTrue(saab.getCurrentSpeed() == 26.25);
+            System.out.println(saab.getCurrentSpeed());
+         assertTrue(saab.getCurrentSpeed()==22.5);
+        }
 
-    }
+        @Test
+        public void testGetModelNameOfCar () {
+            assertTrue(saab.getModelName() == "Saab95");
+        }
 
-    @Test
-    public void testGetModelNameOfCar() {
-        assertTrue(saab.getModelName() == "Saab95");
-    }
-
-    @Test
-    public void testGetColorOfCar() {
-        assertTrue(saab.getColor() == Color.red);
-    }
+        @Test
+        public void testGetColorOfCar () {
+            assertTrue(saab.getColor() == Color.red);
+        }
 
 
     @Test
@@ -140,15 +137,16 @@ public class Testing {
     }
 
     @Test
-    public void testMoveVolvo() {
+    public void testMoveVolvo(){
         volvo.setCurrentSpeed(10);
         volvo.setPosX(0);
         volvo.setPosY(0);
         volvo.move();
         System.out.println(volvo.getPosX());
         System.out.println(volvo.getPosY());
-        assertTrue(volvo.getPosX() != 0 || volvo.getPosY() != 0);
+        assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
     }
+
 
 
 }
