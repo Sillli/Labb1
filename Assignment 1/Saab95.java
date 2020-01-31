@@ -49,26 +49,5 @@ public class Saab95 extends Car {
         return getEnginePower() * 0.01 * turbo;
     }
 
-    /**
-     * Uses the helperfunction incrementHelper to increase the value (amount).
-     *
-     * @param amount is the value that we want to increase.
-     */
-    @Override
-    public void incrementSpeed(double amount) {
-        currentSpeed = Math.min(incrementHelper(amount), getEnginePower());
-    }
-
-    /**
-     * Uses the helperfunction decrementHelper to decrease the value (amount).
-     *
-     * @param amount is the value that we want to decrease.
-     */
-
-    @Override
-    public void decrementSpeed(double amount) {
-        decrementHelper(amount);
-    }
-
 
 }

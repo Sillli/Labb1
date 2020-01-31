@@ -79,6 +79,7 @@ public class Testing {
 
     }
 
+
     @Test
     public void testTurnLeftCarVolvo() {
         volvo.setDirX(0);
@@ -98,25 +99,26 @@ public class Testing {
 
         volvo.turnRight();
     }
-        @Test
-        public void testIncrementSpeedSaab(){
-            saab.setTurboOn();
-            saab.setCurrentSpeed(10);
-            saab.incrementSpeed(10);
-            //System.out.println(saab.getCurrentSpeed());
-            assertTrue(saab.getCurrentSpeed() == 26.25);
 
-        }
+    @Test
+    public void testIncrementSpeedSaab() {
+        saab.setTurboOn();
+        saab.setCurrentSpeed(10);
+        saab.incrementSpeed(10);
+        //System.out.println(saab.getCurrentSpeed());
+        assertTrue(saab.getCurrentSpeed() == 26.25);
 
-        @Test
-        public void testGetModelNameOfCar () {
-            assertTrue(saab.getModelName() == "Saab95");
-        }
+    }
 
-        @Test
-        public void testGetColorOfCar () {
-            assertTrue(saab.getColor() == Color.red);
-        }
+    @Test
+    public void testGetModelNameOfCar() {
+        assertTrue(saab.getModelName() == "Saab95");
+    }
+
+    @Test
+    public void testGetColorOfCar() {
+        assertTrue(saab.getColor() == Color.red);
+    }
 
 
     @Test
