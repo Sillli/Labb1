@@ -11,10 +11,12 @@ public class Testing {
     private Volvo240 volvo;
     private Saab95 saab;
 
+
     @Before
     public void init() {
         volvo = new Volvo240();
         saab = new Saab95();
+
 
     }
 
@@ -125,5 +127,27 @@ public class Testing {
         System.out.println(saab.getNrDoors());
         assertTrue(volvo.getNrDoors() == 4 && saab.getNrDoors() == 2);
     }
+
+     /* @Test
+    public void testDecrementSpeedSaab() {
+        saab.setCurrentSpeed(12);
+        saab.decrementSpeed(12);
+        System.out.print(saab.getCurrentSpeed());
+        TestCase.assertTrue(saab.getCurrentSpeed() == 0);
+
+    }*/
+
+     @Test
+    public void testMoveVolvo(){
+         volvo.setCurrentSpeed(10);
+         volvo.setPosX(0);
+         volvo.setPosY(0);
+         volvo.move();
+         System.out.println(volvo.getPosX());
+         System.out.println(volvo.getPosY());
+         assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
+     }
+
+
 
 }

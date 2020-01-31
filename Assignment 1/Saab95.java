@@ -67,7 +67,7 @@ public class Saab95 extends Car {
 
     @Override
     public void decrementSpeed(double amount) {
-        decrementHelper(amount);
+        currentSpeed = getCurrentSpeed()+ decrementHelper(amount);
     }
 
 
