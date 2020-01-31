@@ -75,7 +75,7 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * getter for the position on the X-axis on the cordinant plane
+     * getter for the position on the X-axis on the coordinant plane
      * @return
      */
     public double getPosX() {
@@ -83,7 +83,7 @@ public abstract class Vehicle implements Movable {
     }
 
     /**
-     * getter for the position on the y-axis on the cordinant plane
+     * getter for the position on the y-axis on the coordinant plane
      * @return
      */
     public double getPosY() {
