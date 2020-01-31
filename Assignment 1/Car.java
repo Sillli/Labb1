@@ -26,21 +26,29 @@ public abstract class Car extends Vehicle {
 
     /**
      * speedFactor() is part of the calculation of the speed of a car
+     *
      * @return return a double value
      */
     public abstract double speedFactor();
 
     /**
-     * A abstract method that takes a
-     * @param amount in the form of a double
+     * Calculates the increment of the speed by using helper function incrementHelper and getEnginePower
+     * chooses the one with the lowest value of the two of them.
+     *
+     * @param amount
      */
-    public abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount) {
+        currentSpeed = Math.min(incrementHelper(amount), getEnginePower());
+    }
 
     /**
-     * A abstract method that takes a
-     * @param amount in form of a double
+     * Calculates the decrement of speed using helper function decrementHelper and 0, the 0 represents a car that is not moving.
+     *
+     * @param amount
      */
-    public abstract void decrementSpeed(double amount);
+    public void decrementSpeed(double amount) {
+        currentSpeed = Math.max(decrementHelper(amount), 0);
+    }
 
     /**
      * A method that sets the currentSpeed to a starting value of 0.1
@@ -58,6 +66,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A helper method for the incrementSpeed method that takes a
+     *
      * @param amount in the for of a double and
      * @return returns a double
      */
@@ -69,6 +78,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A helper method for decrementSpeed methods that takes a
+     *
      * @param amount in the for of a double and
      * @return returns a double
      */
@@ -80,6 +90,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A method that uses the incrementSpeed method to increas the speed of the car.
+     *
      * @param amount in the form of a double
      */
     public void gas(double amount) {
@@ -88,11 +99,13 @@ public abstract class Car extends Vehicle {
 
     /**
      * A method that uses the decrementSpeed method to lower the speed of the car.
+     *
      * @param amount in the form of a double
      */
     public void brake(double amount) {
         decrementSpeed(amount);
     }
+
 
     /**
      * A Method that moves the cars position with the rate of the currentSpeed of the car
@@ -149,6 +162,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * Setter method that sets the Number of doors of the car
+     *
      * @param nrDoors in int
      */
     public void setNrDoors(int nrDoors) {
@@ -157,6 +171,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * Setter methods that sets the enginePower of the car
+     *
      * @param enginePower in the form of double
      */
     public void setEnginePower(double enginePower) {
@@ -165,6 +180,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A method that sets the currentSpeed
+     *
      * @param currentSpeed in the form of int
      */
     public void setCurrentSpeed(int currentSpeed) {
@@ -173,7 +189,8 @@ public abstract class Car extends Vehicle {
 
     /**
      * A getter Methods that gives the car modelsName
-     * @return  as string
+     *
+     * @return as string
      */
     public String getModelName() {
         return modelName;
@@ -181,6 +198,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A setter method that sets the car models name
+     *
      * @param modelName in the form of a string
      */
     public void setModelName(String modelName) {
@@ -189,6 +207,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A getter method that
+     *
      * @return returns the number of doors of the car
      */
     public int getNrDoors() {
@@ -197,6 +216,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A getter method that gives you the enginePower of the car
+     *
      * @return returns as a double
      */
     public double getEnginePower() {
@@ -205,6 +225,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A getter method that gives you the currentSpeed of the car
+     *
      * @return returns the speed in the form of a double
      */
     public double getCurrentSpeed() {
@@ -213,6 +234,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A getter method that returns the colour of the car
+     *
      * @return returns a colour
      */
     public Color getColor() {
@@ -221,6 +243,7 @@ public abstract class Car extends Vehicle {
 
     /**
      * A setter method that sets the colour of the car
+     *
      * @param clr Color
      */
     public void setColor(Color clr) {
