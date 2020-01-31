@@ -110,7 +110,7 @@ public class Testing {
 
         }
         @Test
-        public void testsetTurboOff(){
+        public void testSetTurboOff(){
         saab.setTurboOff();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
