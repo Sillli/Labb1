@@ -13,10 +13,10 @@ public abstract class Vehicle implements Movable {
 
     /**
      * constructor for the Class
-     * @param dirX
-     * @param dirY
-     * @param posX
-     * @param posY
+     * @param dirX the value of direction in x-axis
+     * @param dirY the value of direction in y-axis
+     * @param posX the value of the positions x value
+     * @param posY the value of the positions y value
      */
     public Vehicle(int dirX, int dirY, int posX, int posY) {
         this.dirX = dirX;
@@ -27,7 +27,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * setter for the X-direction of the car
-     * @param dirX
+     * @param dirX the direction x value
      */
     public void setDirX(int dirX) {
         this.dirX = dirX;
@@ -35,15 +35,15 @@ public abstract class Vehicle implements Movable {
 
     /**
      * Setter for the Y-direction of the car
-     * @param dirY
+     * @param dirY the direction y value
      */
     public void setDirY(int dirY) {
         this.dirY = dirY;
     }
 
     /**
-     * setter for the position on the x-axis a cordinant plane for the car
-     * @param posX
+     * setter for the position on the x-axis a coordinant plane for the car
+     * @param posX the positions x value
      */
     public void setPosX(int posX) {
         this.posX = posX;
@@ -51,7 +51,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * setter for the position on the y-axis a cordinant plane for the car
-     * @param posY
+     * @param posY the positions y value
      */
 
     public void setPosY(int posY) {
@@ -60,7 +60,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * getter for the direction X
-     * @return
+     * @return x directional value
      */
     public double getDirX() {
         return dirX;
@@ -68,7 +68,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * getter for the direction Y
-     * @return
+     * @return y directional value
      */
     public double getDirY() {
         return dirY;
@@ -76,7 +76,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * getter for the position on the X-axis on the coordinant plane
-     * @return
+     * @return x positional value
      */
     public double getPosX() {
         return posX;
@@ -84,7 +84,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * getter for the position on the y-axis on the coordinant plane
-     * @return
+     * @return y positional value
      */
     public double getPosY() {
         return posY;
