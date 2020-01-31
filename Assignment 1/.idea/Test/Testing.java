@@ -139,16 +139,16 @@ public class Testing {
 
     }*/
 
-     @Test
+    @Test
     public void testMoveVolvo(){
-         volvo.setCurrentSpeed(10);
-         volvo.setPosX(0);
-         volvo.setPosY(0);
-         volvo.move();
-         System.out.println(volvo.getPosX());
-         System.out.println(volvo.getPosY());
-         assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
-     }
+        volvo.setCurrentSpeed(10);
+        volvo.setPosX(0);
+        volvo.setPosY(0);
+        volvo.move();
+        System.out.println(volvo.getPosX());
+        System.out.println(volvo.getPosY());
+        assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
+    }
 
 
 
