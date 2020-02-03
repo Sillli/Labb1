@@ -12,19 +12,6 @@ public abstract class Scania extends Car {
         this.flatbedAngle = flatbedAngle;
     }
 
-    public void tipFlatbed(){
-
-
-        if(getCurrentSpeed() != 0){
-            //DO NOTHING
-        }
-
-    }
-
-    public void lowerFlatbed(){
-
-    }
-
     public double getFlatbedAngle() {
         return flatbedAngle;
     }
@@ -32,4 +19,32 @@ public abstract class Scania extends Car {
     public void setFlatbedAngle(double flatbedAngle) {
         this.flatbedAngle = flatbedAngle;
     }
+    @Override
+    public void move(){
+        if (getFlatbedAngle() != 0){
+            setCurrentSpeed(0);
+            System.out.println("Flatbed is up");
+        }
+        else if (getFlatbedAngle()== 0 ){
+           super.move();
+        }
+    }
+
+    public void tipFlatbed(){
+
+        if(getCurrentSpeed() != 0){
+            //DO NOTHING
+        }
+       if (getCurrentSpeed() == 0){
+
+       }
+    }
+
+
+
+    public void lowerFlatbed(){
+
+    }
+
+
 }

@@ -17,7 +17,6 @@ public class Testing {
         volvo = new Volvo240();
         saab = new Saab95();
 
-
     }
 
     @Test
