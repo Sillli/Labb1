@@ -145,7 +145,7 @@ public class Testing {
         System.out.println(volvo.getPosY());
         assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
     }
-
+//Test
 
 
 }
