@@ -145,7 +145,46 @@ public class Testing {
         System.out.println(volvo.getPosY());
         assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
     }
-//Test
+    @Test
+    public void testTipFlatbedScania(){
+        Scania scania = new Scania();
+        scania.setFlatbedAngle(0);
+        //System.out.println(scania.getFlatbedAngle());
+        scania.tipFlatbed();
+        assertTrue(scania.getFlatbedAngle()==70);
+    }
+    @Test
+    public void testLowerFlatbedScania(){
+        Scania scania = new Scania();
+        scania.setFlatbedAngle(70);
+        System.out.println(scania.getFlatbedAngle());
+        scania.lowerFlatbed();
+        assertTrue(scania.getFlatbedAngle()==0);
+    }
+    @Test
+    public void testMoveScaniaFlatbedUp(){
+        Scania scania = new Scania();
+        scania.tipFlatbed();
+        scania.setCurrentSpeed(10);
+        scania.setPosX(0);
+        scania.setPosY(0);
+        scania.move();
+        assertTrue( scania.getPosY()==0);
+    }
+    @Test
+    public void testMoveScaniaFlatbedDown(){
+        Scania scania = new Scania();
+        scania.lowerFlatbed();
+        scania.setDirY(1);
+        scania.setCurrentSpeed(10);
+        scania.setPosY(0);
+        scania.setPosX(0);
+        scania.move();
+        System.out.println(scania.getPosX());
+        System.out.println(scania.getPosY());
+        assertTrue( scania.getPosY()!=0);
+    }
+
 
 
 }

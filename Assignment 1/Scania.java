@@ -5,12 +5,12 @@ public class Scania extends Car {
     private double flatbedAngle;
     private final static double trimFactor = 1.10;
 
-    public Scania(double flatbedAngle) {
+    public Scania() {
         setEnginePower(400);
         setModelName("Scania");
         setNrDoors(2);
 
-        this.flatbedAngle = flatbedAngle;
+        this.flatbedAngle = 0;
     }
 
     public void tipFlatbed() {
