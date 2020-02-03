@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
-public abstract class Scania extends Car {
+public class Scania extends Car {
 
     private double flatbedAngle;
-
+    private final static double trimFactor = 1.10;
 
     public Scania(double flatbedAngle) {
         setEnginePower(400);
         setModelName("Scania");
         setNrDoors(2);
+
         this.flatbedAngle = flatbedAngle;
     }
 
@@ -26,10 +27,7 @@ public abstract class Scania extends Car {
         } else if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
             setFlatbedAngle(0);
         }
-
-
     }
-
 
     public double getFlatbedAngle() {
         return flatbedAngle;
@@ -37,6 +35,11 @@ public abstract class Scania extends Car {
 
     public void setFlatbedAngle(double flatbedAngle) {
         this.flatbedAngle = flatbedAngle;
+    }
+
+    @Override
+    public double speedFactor() {
+        return getEnginePower()*0.01*trimFactor;
     }
 
     @Override
