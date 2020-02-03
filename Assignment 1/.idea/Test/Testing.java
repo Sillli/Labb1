@@ -184,6 +184,12 @@ public class Testing {
         System.out.println(scania.getPosY());
         assertTrue( scania.getPosY()!=0);
     }
+    @Test
+    public void testSpeedFactorScania(){
+        Scania scania = new Scania();
+        System.out.println(scania.speedFactor());
+        assertTrue(scania.speedFactor()==4.4);
+    }
 
 
 

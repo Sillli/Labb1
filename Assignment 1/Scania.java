@@ -13,7 +13,7 @@ public class Scania extends Car {
         setModelName("Scania");
         setNrDoors(2);
 
-        this.flatbedAngle = flatbedAngle;
+        this.flatbedAngle = 0;
     }
 
     /**
