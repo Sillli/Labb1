@@ -8,7 +8,7 @@ import java.awt.*;
  * All cars have the attributes of NrDoors, enginePower, currentSpeed, color and a modelName.
  */
 
-public abstract class Car extends Vehicle {
+public abstract class Car extends Movable {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car

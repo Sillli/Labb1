@@ -1,5 +1,3 @@
-import com.sun.source.doctree.StartElementTree;
-
 import java.util.Scanner;
 
 public abstract class Scania extends Car {
@@ -14,18 +12,18 @@ public abstract class Scania extends Car {
         this.flatbedAngle = flatbedAngle;
     }
 
-    public void tipFlatbed(){
-        if(getCurrentSpeed() != 0){
+    public void tipFlatbed() {
+        if (getCurrentSpeed() != 0) {
             //DO NOTHING
-        }else if(getCurrentSpeed() == 0 && getFlatbedAngle()!=70){
+        } else if (getCurrentSpeed() == 0 && getFlatbedAngle() != 70) {
             setFlatbedAngle(70);
-            }
         }
+    }
 
-    public void lowerFlatbed(){
-        if(getCurrentSpeed()!=0){
+    public void lowerFlatbed() {
+        if (getCurrentSpeed() != 0) {
             //DO NOTHING
-        }else if (getCurrentSpeed()== 0 && getFlatbedAngle()>=0){
+        } else if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
             setFlatbedAngle(0);
         }
 
@@ -40,4 +38,16 @@ public abstract class Scania extends Car {
     public void setFlatbedAngle(double flatbedAngle) {
         this.flatbedAngle = flatbedAngle;
     }
+
+    @Override
+    public void move() {
+        if (getFlatbedAngle() != 0) {
+            setCurrentSpeed(0);
+            System.out.println("Flatbed is up");
+        } else if (getFlatbedAngle() == 0) {
+            super.move();
+        }
+    }
+
+
 }
