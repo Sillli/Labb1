@@ -30,21 +30,6 @@ public abstract class Scania extends Car {
         }
     }
 
-    public void tipFlatbed(){
-
-        if(getCurrentSpeed() != 0){
-            //DO NOTHING
-        }
-       if (getCurrentSpeed() == 0){
-
-       }
-    }
-
-
-
-    public void lowerFlatbed(){
-
-    }
 
 
 }
