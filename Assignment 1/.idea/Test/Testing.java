@@ -59,15 +59,15 @@ public class Testing {
 
     @Test
     public void testGasCarVolvo() {
-        volvo.gas(10);
+        volvo.gas(1);
         System.out.println(volvo.getCurrentSpeed());
-        assertTrue(volvo.getCurrentSpeed() == 12.5);
+        assertTrue(volvo.getCurrentSpeed() == 1.25);
     }
 
     @Test
     public void testBrakeCarVolvo() {
-        volvo.setCurrentSpeed(10);
-        volvo.brake(10);
+        volvo.setCurrentSpeed(1);
+        volvo.brake(1);
         System.out.println(volvo.getCurrentSpeed());
         assertTrue(volvo.getCurrentSpeed() == 0);
 
