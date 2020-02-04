@@ -146,25 +146,46 @@ public class Testing {
         assertTrue(volvo.getPosX() != 0 || volvo.getPosY()!=0);
     }
     @Test
+    public void testSetFlatbed(){
+        Flatbed flatbed = new Flatbed();
+        flatbed.setFlatbedAngle(10);
+        System.out.println(flatbed.getFlatbedAngle());
+        assertTrue(flatbed.getFlatbedAngle()==10);
+    }
+    @Test
+    public void testLowerFlatbed(){
+        Flatbed flatbed = new Flatbed();
+        flatbed.setFlatbedAngle(10);
+        flatbed.lowerFlatbed(0);
+        assertTrue(flatbed.getFlatbedAngle()==0);
+    }
+    @Test
+    public void testTipFlatbed(){
+        Flatbed flatbed = new Flatbed();
+        flatbed.setFlatbedAngle(0);
+        flatbed.tipFlatbed(10);
+        System.out.println(flatbed.getFlatbedAngle());
+        assertTrue(flatbed.getFlatbedAngle()==10);
+    }
+    @Test
     public void testTipFlatbedScania(){
         Scania scania = new Scania();
-        scania.setFlatbedAngle(0);
-        //System.out.println(scania.getFlatbedAngle());
-        scania.tipFlatbed();
-        assertTrue(scania.getFlatbedAngle()==70);
+        scania.setCurrentSpeed(10);
+        scania.tipFlatbed(70);
+        assertTrue(scania.getFlatbed().getFlatbedAngle()==0);
     }
     @Test
     public void testLowerFlatbedScania(){
         Scania scania = new Scania();
-        scania.setFlatbedAngle(70);
-        System.out.println(scania.getFlatbedAngle());
-        scania.lowerFlatbed();
-        assertTrue(scania.getFlatbedAngle()==0);
+        scania.getFlatbed().setFlatbedAngle(70);
+        System.out.println(scania.getFlatbed().getFlatbedAngle());
+        scania.lowerFlatbed(0);
+        assertTrue(scania.getFlatbed().getFlatbedAngle()==0);
     }
     @Test
     public void testMoveScaniaFlatbedUp(){
         Scania scania = new Scania();
-        scania.tipFlatbed();
+        scania.tipFlatbed(70);
         scania.setCurrentSpeed(10);
         scania.setPosX(0);
         scania.setPosY(0);
@@ -174,7 +195,8 @@ public class Testing {
     @Test
     public void testMoveScaniaFlatbedDown(){
         Scania scania = new Scania();
-        scania.lowerFlatbed();
+        scania.getFlatbed().setFlatbedAngle(70);
+        scania.lowerFlatbed(0);
         scania.setDirY(1);
         scania.setCurrentSpeed(10);
         scania.setPosY(0);

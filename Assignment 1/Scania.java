@@ -1,8 +1,6 @@
-import java.util.Scanner;
-
 public class Scania extends Car {
 
-    private double flatbedAngle;
+    private Flatbed flatbed;
     private final static double trimFactor = 1.10;
 
     /**
@@ -13,48 +11,41 @@ public class Scania extends Car {
         setModelName("Scania");
         setNrDoors(2);
 
-        this.flatbedAngle = 0;
+        this.flatbed = new Flatbed();
+    }
+
+    /***
+     * A getter method that returns the Flatbed object in the scania object
+     * @return Flatbed object
+     */
+    public Flatbed getFlatbed(){
+        return this.flatbed;
     }
 
     /**
      * method that tips the flatbed, has a few conditions
      * if the scania is moving this can not happen
-     * if the scania already has the flatbed up it can move the flatbed further
+     * if the scania already has the flatbed up it can't move the flatbed further
      *
      */
-    public void tipFlatbed() {
+
+    public void tipFlatbed(double degree) {
         if (getCurrentSpeed() != 0) {
             //DO NOTHING
-        } else if (getCurrentSpeed() == 0 && getFlatbedAngle() != 70) {
-            setFlatbedAngle(70);
+        } else if (getCurrentSpeed() == 0 && flatbed.getFlatbedAngle()<=70 && flatbed.getFlatbedAngle()<= degree){
+            flatbed.tipFlatbed(degree);
         }
     }
 
     /**
-     * Method that decides if the flatbed can be lowerd
+     * Method that decides if the flatbed can be lowered
      */
-    public void lowerFlatbed() {
+    public void lowerFlatbed(double degree) {
         if (getCurrentSpeed() != 0) {
             //DO NOTHING
-        } else if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
-            setFlatbedAngle(0);
+        } else if (getCurrentSpeed() == 0 && flatbed.getFlatbedAngle()>=0 && flatbed.getFlatbedAngle()>= degree){
+            flatbed.lowerFlatbed(degree);
         }
-    }
-
-    /**
-     * getting the angle of the flatbed, 0 or 70
-     * @return flatbedAngle, shows if the angle is up or down
-     */
-    public double getFlatbedAngle() {
-        return flatbedAngle;
-    }
-
-    /**
-     * setting the angle of the flatbed, either to  0 or 70
-     * @param flatbedAngle the angle the flatbed is gonna get
-     */
-    public void setFlatbedAngle(double flatbedAngle) {
-        this.flatbedAngle = flatbedAngle;
     }
 
     /**
@@ -72,10 +63,10 @@ public class Scania extends Car {
      */
     @Override
     public void move() {
-        if (getFlatbedAngle() != 0) {
+        if (flatbed.getFlatbedAngle() != 0) {
             setCurrentSpeed(0);
             System.out.println("Flatbed is up");
-        } else if (getFlatbedAngle() == 0) {
+        } else if (flatbed.getFlatbedAngle() == 0) {
             super.move();
         }
     }
