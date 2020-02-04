@@ -5,7 +5,7 @@ public class CarTransporter extends Car {
     private final static double trimFactor=1.10;
     public CarTransporter(Flatbed flatbed) {
         setEnginePower(400);
-        setModelName("CarTransporter");
+        setModelName("Mercedes");
         setNrDoors(2);
         this.flatbed = flatbed;
     }
