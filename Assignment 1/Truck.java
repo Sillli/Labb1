@@ -1,8 +1,13 @@
-public class Truck {
-
-    private Car parent;
+public class Truck extends Car{
 
     public Truck(){
-        parent.
+
+    }
+
+
+
+    @Override
+    public double speedFactor() {
+        return 0;
     }
 }
