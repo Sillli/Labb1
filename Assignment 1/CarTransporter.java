@@ -1,8 +1,9 @@
 public class CarTransporter extends Car {
 
     private Flatbed flatbed;
-
     private final static double trimFactor=1.10;
+    private final int maxCarsLoaded = 6;
+
     public CarTransporter(Flatbed flatbed) {
         setEnginePower(400);
         setModelName("Mercedes");
@@ -18,10 +19,11 @@ public class CarTransporter extends Car {
     public void tipFlatbed(){
         if (getCurrentSpeed()!=0){
             //DO NOTHING
-        }else if(getCurrentSpeed()==0){
+        }else{
             flatbed.setFlatbedAngle(70);
         }
     }
+
     public void lowerFlatbed(){
         if (getCurrentSpeed()!=0){
             //DO NOTHING
