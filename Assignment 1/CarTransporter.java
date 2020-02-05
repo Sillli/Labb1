@@ -34,16 +34,17 @@ public class CarTransporter extends Truck implements IStorable {
         }
     }
 
-
     @Override
-    public void onLoadingCars(Car car) {
+    public void onLoadingCar(Car car) {
+        if(this.getDistanceX(car) <=2 && this.getDistanceY(car)<=2 && flatbed.getFlatbedAngle()==0){
+            stack.add(car);
+        }
 
 
     }
 
     @Override
-    public void offLoadingCars(Car car) {
-
+    public void offLoadingCar(Car car) {
 
     }
 }
