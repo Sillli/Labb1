@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Scania extends Truck {
 
-    private final Flatbed flatbed;
+    //private final Flatbed flatbed;
     private final static double trimFactor = 1.10;
 
     /**
@@ -57,7 +57,8 @@ public class Scania extends Truck {
         if(flatbedAngle >= 0 && flatbedAngle <= 70) {
             this.flatbed.setFlatbedAngle(flatbedAngle);
         }
-    }
+
+
 
     /**
      *
