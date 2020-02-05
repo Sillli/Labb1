@@ -1,14 +1,14 @@
-public class CarTransporter extends Car {
+public class CarTransporter extends Car implements ICarTransporter {
 
     private Flatbed flatbed;
     private final static double trimFactor=1.10;
     private final int maxCarsLoaded = 6;
 
-    public CarTransporter(Flatbed flatbed) {
+    public CarTransporter() {
         setEnginePower(400);
         setModelName("Mercedes");
         setNrDoors(2);
-        this.flatbed = flatbed;
+        this.flatbed = new Flatbed();
     }
 
     @Override
@@ -30,5 +30,15 @@ public class CarTransporter extends Car {
         }else if(getCurrentSpeed()==0 && flatbed.getFlatbedAngle()>0){
             flatbed.setFlatbedAngle(0);
         }
+    }
+
+    @Override
+    public void loadCar(Car car) {
+
+    }
+
+    @Override
+    public void releaseCar() {
+
     }
 }
