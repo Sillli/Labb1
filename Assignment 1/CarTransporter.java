@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class CarTransporter extends Truck implements IStorable {
+public class CarTransporter extends Truck {
 
     private final int maxLoadedCars = 6;
     private final static double trimFactor = 1.10;
@@ -32,18 +32,5 @@ public class CarTransporter extends Truck implements IStorable {
         } else if (getCurrentSpeed() == 0 && flatbed.getFlatbedAngle() > 0) {
             flatbed.setFlatbedAngle(0);
         }
-    }
-
-
-    @Override
-    public void onLoadingCars(Car car) {
-
-
-    }
-
-    @Override
-    public void offLoadingCars(Car car) {
-
-
     }
 }
