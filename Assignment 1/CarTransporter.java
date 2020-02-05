@@ -45,15 +45,18 @@ public class CarTransporter extends Truck implements IStorable {
     }
 
     @Override
-    public void offLoadingCar(Car car) {
-
+    public void offLoadingCar() {
         if(flatbed.getFlatbedAngle()==70 && stack.size()>0){
             for (int i=0; i <stack.size(); i++){
                 (stack.pop()).setPosX((int) (getPosX()+1+i));
 
             }
         }
-
-
+    }
+    public void transported(){
+        for (Car car: stack) {
+            car.setPosX((int) this.getPosX());
+            car.setPosY((int) this.getPosY());
+        }
     }
 }
