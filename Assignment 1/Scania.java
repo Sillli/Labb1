@@ -1,17 +1,16 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class Scania extends Truck {
 
-    //private final Flatbed flatbed;
+    private final Flatbed flatbed;
     private final static double trimFactor = 1.10;
 
     /**
      *constructor of the class Scania, sets it unique attributes
      */
     public Scania() {
-        setEnginePower(400);
-        setModelName("Scania");
-        setNrDoors(2);
+        super(0,1,0,0,2,400,0, Color.red,"Scania");
         this.flatbed = new Flatbed();
     }
 
@@ -54,11 +53,11 @@ public class Scania extends Truck {
      * @param flatbedAngle the angle the flatbed is gonna get
      */
     public void setFlatbedAngle(double flatbedAngle) {
-        if(flatbedAngle >= 0 && flatbedAngle <= 70) {
+        if (flatbedAngle >= 0 && flatbedAngle <= 70) {
             this.flatbed.setFlatbedAngle(flatbedAngle);
         }
 
-
+    }
 
     /**
      *
@@ -73,7 +72,7 @@ public class Scania extends Truck {
      * Checks if the flatbed is up, and if it is the scania can not move and a "error message" prints out
      * if tthe flatbed is down the car can move
      */
-    @Override
+
     public void move() {
         if (getFlatbedAngle() != 0) {
             setCurrentSpeed(0);

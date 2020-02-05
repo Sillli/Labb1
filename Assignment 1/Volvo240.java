@@ -4,9 +4,6 @@ import java.awt.*;
  * Class describing Volvo240 its unique attributes
  */
 public class Volvo240 extends Car {
-
-
-
     /**
      * Attribut that we use to calculate the speed.
      */
@@ -26,7 +23,6 @@ public class Volvo240 extends Car {
     public double speedFactor() {
         return getEnginePower() * 0.01 * trimFactor;
     }
-
 
 }
 
