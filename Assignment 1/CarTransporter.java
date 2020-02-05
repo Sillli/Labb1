@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class CarTransporter extends Car {
 
     private Flatbed flatbed;
@@ -5,11 +7,9 @@ public class CarTransporter extends Car {
     private final static double trimFactor=1.10;
 
     public CarTransporter() {
-        super(0,1,0,0,2,);
-        setEnginePower(400);
-        setModelName("CarTransporter");
-        setNrDoors(2);
-        this.flatbed = flatbed;
+        super(0,1,0,0,2,400,0, Color.black,
+                "CarTransporter");
+        this.flatbed = new Flatbed();
     }
 
     @Override
