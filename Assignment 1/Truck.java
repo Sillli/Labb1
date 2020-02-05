@@ -1,6 +1,7 @@
 import java.awt.*;
 
-public abstract class Truck extends Movable {
+public abstract class Truck extends Movable  {
+
     protected Flatbed flatbed;
 
 

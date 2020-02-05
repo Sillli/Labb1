@@ -7,10 +7,10 @@ public class Scania extends Truck {
     private final static double trimFactor = 1.10;
 
     /**
-     *constructor of the class Scania, sets it unique attributes
+     * constructor of the class Scania, sets it unique attributes
      */
     public Scania() {
-        super(0,1,0,0,2,400,0, Color.red,"Scania");
+        super(0, 1, 0, 0, 2, 400, 0, Color.red, "Scania");
         this.flatbed = new Flatbed();
     }
 
@@ -18,7 +18,6 @@ public class Scania extends Truck {
      * method that tips the flatbed, has a few conditions
      * if the scania is moving this can not happen
      * if the scania already has the flatbed up it can move the flatbed further
-     *
      */
 
     public void tipFlatbed() {
@@ -42,6 +41,7 @@ public class Scania extends Truck {
 
     /**
      * getting the angle of the flatbed, 0 or 70
+     *
      * @return flatbedAngle, shows if the angle is up or down
      */
     public double getFlatbedAngle() {
@@ -50,6 +50,7 @@ public class Scania extends Truck {
 
     /**
      * setting the angle of the flatbed, either to  0 or 70
+     *
      * @param flatbedAngle the angle the flatbed is gonna get
      */
     public void setFlatbedAngle(double flatbedAngle) {
@@ -60,17 +61,12 @@ public class Scania extends Truck {
     }
 
     /**
-     *
      * @return the speedfactor of the scania-truck
      */
     @Override
     public double speedFactor() {
-        return getEnginePower()*0.01*trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
-
-
-
-
 
 
 }
