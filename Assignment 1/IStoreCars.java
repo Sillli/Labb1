@@ -1,4 +1,4 @@
-public interface IStorable {
+public interface IStoreCars {
 
 
     public void onLoadingCar(Car car);
