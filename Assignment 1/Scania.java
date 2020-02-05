@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Scania extends Car implements IScania {
+public class Scania extends Truck {
 
     private final Flatbed flatbed;
     private final static double trimFactor = 1.10;
