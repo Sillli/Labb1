@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class CarTransporter extends Truck {
+public class CarTransporter extends Truck implements IStorable {
 
     private final int maxLoadedCars = 6;
     private final static double trimFactor = 1.10;
@@ -32,5 +32,28 @@ public class CarTransporter extends Truck {
         } else if (getCurrentSpeed() == 0 && flatbed.getFlatbedAngle() > 0) {
             flatbed.setFlatbedAngle(0);
         }
+    }
+
+    @Override
+    public void onLoadingCar(Car car) {
+        if (this.getDistanceX(car) <= 2 && this.getDistanceY(car) <= 2 && flatbed.getFlatbedAngle() == 70
+                && stack.size() < maxLoadedCars) {
+            stack.add(car);
+        }
+
+
+    }
+
+    @Override
+    public void offLoadingCar(Car car) {
+
+        if(flatbed.getFlatbedAngle()==70 && stack.size()>0){
+            for (int i=0; i <stack.size(); i++){
+                (stack.pop()).setPosX((int) (getPosX()+1+i));
+
+            }
+        }
+
+
     }
 }

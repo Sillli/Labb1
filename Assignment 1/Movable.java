@@ -37,7 +37,14 @@ public abstract class Movable implements IMovable {
         this.modelName=modelName;
     }
 
-
+    public double getDistanceX(Movable other){
+       double distanceX = Math.abs(other.getPosX()-this.getPosX());
+       return distanceX;
+    }
+    public double getDistanceY(Movable other){
+        double distanceY = Math.abs(other.getPosY()-this.getPosY());
+        return distanceY;
+    }
 
     /**
      * setter for the X-direction of the car
