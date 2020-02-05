@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public abstract class Truck extends Movable {
-    private Flatbed flatbed;
+    protected Flatbed flatbed;
 
 
     /***
@@ -11,6 +11,20 @@ public abstract class Truck extends Movable {
                  Color color, String modelName) {
         super(dirX, dirY, posX, posY, nrDoors, enginePower, currentSpeed,
                 color, modelName);
+    }
+
+    /**
+     * Checks if the flatbed is up, and if it is the scania can not move and a "error message" prints out
+     * if the flatbed is down the car can move
+     */
+    @Override
+    public void move() {
+        if (getFlatbedAngle() != 0) {
+            setCurrentSpeed(0);
+            System.out.println("Flatbed is up");
+        } else if (getFlatbedAngle() == 0) {
+            super.move();
+        }
     }
 
 

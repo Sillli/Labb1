@@ -68,19 +68,9 @@ public class Scania extends Truck {
         return getEnginePower()*0.01*trimFactor;
     }
 
-    /**
-     * Checks if the flatbed is up, and if it is the scania can not move and a "error message" prints out
-     * if tthe flatbed is down the car can move
-     */
 
-    public void move() {
-        if (getFlatbedAngle() != 0) {
-            setCurrentSpeed(0);
-            System.out.println("Flatbed is up");
-        } else if (getFlatbedAngle() == 0) {
-            super.move();
-        }
-    }
+
+
 
 
 }
