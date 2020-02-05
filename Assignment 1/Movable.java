@@ -37,6 +37,8 @@ public abstract class Movable implements IMovable {
         this.modelName=modelName;
     }
 
+
+
     /**
      * setter for the X-direction of the car
      * @param dirX the direction x value
