@@ -25,7 +25,6 @@ public abstract class Car extends Movable {
     public Car(int dirX, int dirY, int posX, int posY, int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
         super(dirX, dirY, posX, posY, nrDoors, enginePower, currentSpeed, color, modelName);
     }
-
     /**
      * A constructor that's used by subclasses to the Car
      */

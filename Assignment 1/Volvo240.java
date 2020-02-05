@@ -5,20 +5,18 @@ import java.awt.*;
  */
 public class Volvo240 extends Car {
 
-    public Volvo240() {
-        setNrDoors(4);
-        setColor(Color.black);
-        setEnginePower(100);
-        setModelName("Volvo240");
-        stopEngine();
 
-    }
 
     /**
      * Attribut that we use to calculate the speed.
      */
     private final static double trimFactor = 1.25;
 
+    public Volvo240() {
+        super(0,1,0,0,4,100,0,Color.black,"Volvo240");
+        stopEngine();
+
+    }
     /**
      * speedfactor is a part of the calulation of speed
      *

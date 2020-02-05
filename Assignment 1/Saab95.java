@@ -14,11 +14,8 @@ public class Saab95 extends Car {
      * Contains the car's unique attribute that is needed at start
      */
     public Saab95() {
-        setNrDoors(2);
-        setColor(Color.red);
-        setEnginePower(125);
+        super(0,1,0,0,2,125,0,Color.red,"Saab95");
         turboOn = false;
-        setModelName("Saab95");
         stopEngine();
     }
 
