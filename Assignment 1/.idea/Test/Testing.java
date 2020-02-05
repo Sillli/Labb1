@@ -152,6 +152,8 @@ public class Testing {
         System.out.println(flatbed.getFlatbedAngle());
         assertTrue(flatbed.getFlatbedAngle()==10);
     }
+
+    /*
     @Test
     public void testLowerFlatbed(){
         Flatbed flatbed = new Flatbed();
@@ -206,6 +208,8 @@ public class Testing {
         System.out.println(scania.getPosY());
         assertTrue( scania.getPosY()!=0);
     }
+
+    */
     @Test
     public void testSpeedFactorScania(){
         Scania scania = new Scania();
