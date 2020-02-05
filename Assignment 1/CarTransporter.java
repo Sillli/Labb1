@@ -3,7 +3,8 @@ public class CarTransporter extends Car {
     private Flatbed flatbed;
 
     private final static double trimFactor=1.10;
-    public CarTransporter(Flatbed flatbed) {
+
+    public CarTransporter() {
         setEnginePower(400);
         setModelName("CarTransporter");
         setNrDoors(2);

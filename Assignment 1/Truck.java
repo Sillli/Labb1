@@ -1,8 +1,7 @@
 public class Truck {
 
-    private Car parent;
+    private Flatbed flatbed;
 
-    public Truck(){
-        parent.
-    }
+
+
 }
