@@ -10,8 +10,9 @@ public abstract class Movable implements IMovable {
      */
     private int dirX;
     private int dirY;
-    private int posX;
-    private int posY;
+    private double posX;
+    private double posY;
+
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -66,7 +67,7 @@ public abstract class Movable implements IMovable {
      * setter for the position on the x-axis a coordinant plane for the car
      * @param posX the positions x value
      */
-    public void setPosX(int posX) {
+    public void setPosX(double posX) {
         this.posX = posX;
     }
 
@@ -75,7 +76,7 @@ public abstract class Movable implements IMovable {
      * @param posY the positions y value
      */
 
-    public void setPosY(int posY) {
+    public void setPosY(double posY) {
         this.posY = posY;
     }
 

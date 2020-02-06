@@ -12,6 +12,7 @@ public class Scania extends Truck {
     public Scania() {
         super(0, 1, 0, 0, 2, 400, 0, Color.red, "Scania");
         this.flatbed = new Flatbed();
+
     }
 
     /**
@@ -38,6 +39,8 @@ public class Scania extends Truck {
             setFlatbedAngle(0);
         }
     }
+
+
 
     /**
      * getting the angle of the flatbed, 0 or 70

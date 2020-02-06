@@ -1,17 +1,36 @@
-public class Workshop implements IStoreCars{
+import java.util.LinkedList;
+import java.util.List;
 
-    private final int maxCars = 5;
-    public Workshop(){
+public class Workshop < T extends Car> {
+
+    List<T> carList = new LinkedList<>();
+
+    private final int maxCars;
+
+    public Workshop(int maxCars){
+        this.maxCars = maxCars;
     }
-    @Override
-    public void onLoadingCar(Car car) {
 
+    public void onLoadingCar (T car) {
+        if(carList.size()<maxCars){
+            carList.add(car);
+        }
     }
 
-    @Override
-    public void offLoadingCar(Car car) {
-
+    public T offLoadingCar(T car) {
+        T c = carList.get(carList.indexOf(car));
+        carList.remove(car);
+        return c;
     }
 }
 
+/*
+        List<Saab95> saab95List = new LinkedList<>();
+        saab95List.add(new Volvo240());
 
+        Workshop<Saab95> saab95Workshop = new Workshop<>(3);
+        saab95Workshop.onLoadingCar(new Volvo240());
+        saab95Workshop.offLoadingCar(new Volvo240());
+
+
+ */

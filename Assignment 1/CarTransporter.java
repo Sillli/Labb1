@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class CarTransporter extends Truck implements IStorable {
+public class CarTransporter extends Truck implements IStoreCars {
 
     private final int maxLoadedCars = 6;
     private final static double trimFactor = 1.10;
@@ -40,8 +40,6 @@ public class CarTransporter extends Truck implements IStorable {
                 && stack.size() < maxLoadedCars) {
             stack.add(car);
         }
-
-
     }
 
     @Override
@@ -53,10 +51,17 @@ public class CarTransporter extends Truck implements IStorable {
             }
         }
     }
+
+    @Override
+    public void move(){
+        super.move();
+        transported();
+    }
+
     public void transported(){
         for (Car car: stack) {
-            car.setPosX((int) this.getPosX());
-            car.setPosY((int) this.getPosY());
+            car.setPosX (this.getPosX());
+            car.setPosY(this.getPosY());
         }
     }
 }

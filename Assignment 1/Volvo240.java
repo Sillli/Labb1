@@ -13,6 +13,7 @@ public class Volvo240 extends Car {
         super(0,1,0,0,4,100,0,Color.black,"Volvo240");
         stopEngine();
 
+
     }
     /**
      * speedfactor is a part of the calulation of speed
@@ -23,6 +24,7 @@ public class Volvo240 extends Car {
     public double speedFactor() {
         return getEnginePower() * 0.01 * trimFactor;
     }
+
 
 }
 

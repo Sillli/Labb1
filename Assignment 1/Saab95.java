@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * A subclass to car that describes Saab95.
@@ -26,6 +28,7 @@ public class Saab95 extends Car {
         turboOn = true;
     }
 
+
     /**
      * @return false when the turbo is off.
      */
@@ -44,7 +47,10 @@ public class Saab95 extends Car {
         double turbo = 1;
         if (turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
+
+
     }
+
 
 
 }
