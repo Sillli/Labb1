@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Workshop < T extends Car> {
+public class Workshop < T extends Car>  {
 
     List<T> carList = new LinkedList<>();
 
@@ -22,6 +22,9 @@ public class Workshop < T extends Car> {
         carList.remove(car);
         return c;
     }
+
+
+
 }
 
 /*
