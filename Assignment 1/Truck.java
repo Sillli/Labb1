@@ -9,8 +9,9 @@ public abstract class Truck extends Movable{
      */
     public Truck(int dirX, int dirY, int posX, int posY, int nrDoors, double enginePower, double currentSpeed,
                  Color color, String modelName) {
-        super(dirX, dirY, posX, posY, nrDoors, enginePower, currentSpeed,
-                color, modelName);
+        super();
+
+
     }
 
     /**
@@ -23,10 +24,10 @@ public abstract class Truck extends Movable{
             setCurrentSpeed(0);
             System.out.println("Flatbed is up");
         } else if (flatbed.getFlatbedAngle() == 0) {
-            if (getDirX() != 0) {
-                setPosX((int) (getPosX() + getDirX() * getCurrentSpeed()));
-            } else if (getDirY() != 0) {
-                setPosY((int) (getPosY() + getDirY() * getCurrentSpeed()));
+            if (position.getDirX() != 0) {
+                position.setPosX( (position.getPosX() + position.getDirX() * getCurrentSpeed()));
+            } else if (position.getDirY() != 0) {
+                position.setPosY( (position.getPosY() + position.getDirY() * getCurrentSpeed()));
             }
         }
     }

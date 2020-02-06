@@ -1,4 +1,4 @@
-
+/*
 import org.junit.Before;
 import org.junit.Test;
 
@@ -153,40 +153,30 @@ public class Testing {
         assertTrue(flatbed.getFlatbedAngle()==10);
     }
 
-    /*
-    @Test
-    public void testLowerFlatbed(){
-        Flatbed flatbed = new Flatbed();
-        flatbed.setFlatbedAngle(10);
-        flatbed.lowerFlatbed(0);
-        assertTrue(flatbed.getFlatbedAngle()==0);
-    }
-    @Test
-    public void testTipFlatbed(){
-        Flatbed flatbed = new Flatbed();
-        flatbed.setFlatbedAngle(0);
-        flatbed.tipFlatbed(10);
-        System.out.println(flatbed.getFlatbedAngle());
-        assertTrue(flatbed.getFlatbedAngle()==10);
-    }
+
+
+
     @Test
     public void testTipFlatbedScania(){
         Scania scania = new Scania();
         scania.setCurrentSpeed(10);
         scania.tipFlatbed(70);
-        assertTrue(scania.getFlatbed().getFlatbedAngle()==0);
+        assertTrue(scania.getFlatbedAngle()==0);
     }
     @Test
     public void testLowerFlatbedScania(){
         Scania scania = new Scania();
-        scania.getFlatbed().setFlatbedAngle(70);
-        System.out.println(scania.getFlatbed().getFlatbedAngle());
+        scania.setFlatbedAngle(70);
+        System.out.println(scania.getFlatbedAngle());
         scania.lowerFlatbed(0);
-        assertTrue(scania.getFlatbed().getFlatbedAngle()==0);
+        assertTrue(scania.getFlatbedAngle()==0);
     }
+
+
     @Test
     public void testMoveScaniaFlatbedUp(){
         Scania scania = new Scania();
+        scania.setFlatbedAngle(0);
         scania.tipFlatbed(70);
         scania.setCurrentSpeed(10);
         scania.setPosX(0);
@@ -194,10 +184,11 @@ public class Testing {
         scania.move();
         assertTrue( scania.getPosY()==0);
     }
+
     @Test
     public void testMoveScaniaFlatbedDown(){
         Scania scania = new Scania();
-        scania.getFlatbed().setFlatbedAngle(70);
+        scania.setFlatbedAngle(70);
         scania.lowerFlatbed(0);
         scania.setDirY(1);
         scania.setCurrentSpeed(10);
@@ -209,14 +200,77 @@ public class Testing {
         assertTrue( scania.getPosY()!=0);
     }
 
-    */
+
     @Test
     public void testSpeedFactorScania(){
         Scania scania = new Scania();
         System.out.println(scania.speedFactor());
         assertTrue(scania.speedFactor()==4.4);
     }
+    @Test
+    public void testSpeedFactorCarTransporter(){
+        CarTransporter carTransporter = new CarTransporter();
+        assertTrue(carTransporter.speedFactor()==4.4);
+    }
+    @Test
+    public void testTipFlatbedCarTransporter(){
+        CarTransporter carTransporter = new CarTransporter();
+        carTransporter.tipFlatbed();
+        assertTrue(carTransporter.flatbed.getFlatbedAngle()==70);
+    }
+    @Test
+    public void testLowerFlatbedCarTransporter(){
+        CarTransporter carTransporter= new CarTransporter();
+        carTransporter.flatbed.setFlatbedAngle(70);
+        carTransporter.lowerFlatbed();
+        assertTrue(carTransporter.flatbed.getFlatbedAngle()==0);
+    }
+    @Test
+    public void testOnLoadingCarTransporter(){
+        CarTransporter carTransporter = new CarTransporter();
+        carTransporter.setPosX(0);
+        carTransporter.setPosY(0);
+        carTransporter.flatbed.setFlatbedAngle(70);
+        Volvo240 volvo = new Volvo240();
+        volvo.setPosX(1);
+        volvo.setPosY(1);
+        carTransporter.onLoadingCar(volvo);
+        assertTrue(carTransporter.stack.size()==1);
+    }
+    @Test
+    public void testOffLoadingCarTransporter(){
+        CarTransporter carTransporter = new CarTransporter();
+        carTransporter.setPosX(0);
+        carTransporter.setPosX(0);
+        volvo.setPosY(1);
+        volvo.setPosX(1);
+        carTransporter.flatbed.setFlatbedAngle(70);
+        Volvo240 volvo = new Volvo240();
+        carTransporter.onLoadingCar(volvo);
+        System.out.println(carTransporter.stack.size());
+        carTransporter.offLoadingCar();
+        assertTrue(carTransporter.stack.size()==0);
+    }
 
+    @Test
+    public void testTransported(){
+
+    }
+    @Test
+    public void testDistanceX(){
+        volvo.setPosX(4);
+        Volvo240 volvo2 = new Volvo240();
+        volvo2.setPosX(-4);
+        assertTrue(volvo.getDistanceX(volvo2)==8);
+    }
+    @Test
+    public void testDistanceY(){
+        Volvo240 volvo2 = new Volvo240();
+        volvo.setPosY(6);
+        volvo2.setPosY(10);
+        assertTrue(volvo2.getDistanceY(volvo)==4);
+    }
 
 
 }
+*/

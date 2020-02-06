@@ -36,7 +36,7 @@ public class CarTransporter extends Truck implements IStoreCars {
 
     @Override
     public void onLoadingCar(Car car) {
-        if (this.getDistanceX(car) <= 2 && this.getDistanceY(car) <= 2 && flatbed.getFlatbedAngle() == 70
+        if (this.position.getDistanceX(car.position) <= 2 && this.position.getDistanceY(car.position) <= 2 && flatbed.getFlatbedAngle() == 70
                 && stack.size() < maxLoadedCars) {
             stack.add(car);
         }
@@ -46,7 +46,7 @@ public class CarTransporter extends Truck implements IStoreCars {
     public void offLoadingCar() {
         if(flatbed.getFlatbedAngle()==70 && stack.size()>0){
             for (int i=0; i <stack.size(); i++){
-                (stack.pop()).setPosX((int) (getPosX()+1+i));
+                (stack.pop()).position.setPosX((int) (position.getPosX()+1+i));
 
             }
         }
@@ -60,8 +60,8 @@ public class CarTransporter extends Truck implements IStoreCars {
 
     public void transported(){
         for (Car car: stack) {
-            car.setPosX (this.getPosX());
-            car.setPosY(this.getPosY());
+            car.position.setPosX (this.position.getPosX());
+            car.position.setPosY(this.position.getPosY());
         }
     }
 }

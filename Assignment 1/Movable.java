@@ -8,147 +8,48 @@ public abstract class Movable implements IMovable {
     /**
      * initiates directions and positions
      */
-    private int dirX;
-    private int dirY;
-    private double posX;
-    private double posY;
 
-    private int nrDoors; // Number of doors on the car
-    private double enginePower; // Engine power of the car
+    public Position position;
+    public Caross caross;
+    public Engine engine;
     protected double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
     private String modelName; // The car model name
-    /**
-     * constructor for the Class
-     * @param dirX the value of direction in x-axis
-     * @param dirY the value of direction in y-axis
-     * @param posX the value of the positions x value
-     * @param posY the value of the positions y value
-     */
-    public Movable(int dirX, int dirY, int posX, int posY,int nrDoors, double enginePower, double currentSpeed,
-                   Color color, String modelName) {
-        this.dirX = dirX;
-        this.dirY = dirY;
-        this.posX = posX;
-        this.posY = posY;
-        this.nrDoors=nrDoors;
-        this.enginePower=enginePower;
-        this.currentSpeed= currentSpeed;
-        this.color = color;
-        this.modelName=modelName;
+
+    public Movable() {
+        this.currentSpeed= 0;
     }
 
-    public double getDistanceX(Movable other){
-       double distanceX = Math.abs(other.getPosX()-this.getPosX());
-       return distanceX;
+    @Override
+    public void turnRight() {
+        if (position.getDirX() == -1 && position.getDirY() == 0) {
+            setXYDir(-1,0);
+        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
+            setXYDir(-1,0);
+        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
+            setXYDir(0,1);
+        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
+            setXYDir(1,0);
+        }
     }
-    public double getDistanceY(Movable other){
-        double distanceY = Math.abs(other.getPosY()-this.getPosY());
-        return distanceY;
-    }
-
-    /**
-     * setter for the X-direction of the car
-     * @param dirX the direction x value
-     */
-    public void setDirX(int dirX) {
-        this.dirX = dirX;
-    }
-
-    /**
-     * Setter for the Y-direction of the car
-     * @param dirY the direction y value
-     */
-    public void setDirY(int dirY) {
-        this.dirY = dirY;
-    }
-
-    /**
-     * setter for the position on the x-axis a coordinant plane for the car
-     * @param posX the positions x value
-     */
-    public void setPosX(double posX) {
-        this.posX = posX;
-    }
-
-    /**
-     * setter for the position on the y-axis a cordinant plane for the car
-     * @param posY the positions y value
-     */
-
-    public void setPosY(double posY) {
-        this.posY = posY;
-    }
-
-    /**
-     * getter for the direction X
-     * @return x directional value
-     */
-    public double getDirX() {
-        return dirX;
-    }
-
-    /**
-     * getter for the direction Y
-     * @return y directional value
-     */
-    public double getDirY() {
-        return dirY;
-    }
-
-    /**
-     * getter for the position on the X-axis on the coordinant plane
-     * @return x positional value
-     */
-    public double getPosX() {
-        return posX;
-    }
-
-    /**
-     * getter for the position on the y-axis on the coordinant plane
-     * @return y positional value
-     */
-    public double getPosY() {
-        return posY;
-    }
-    /**
-     * A method that changes the direction of the car to the left by 90 degrees
-     */
+    @Override
     public void turnLeft() {
 
-        if (getDirX() == -1 && getDirY() == 0) {
-            setDirX(0);
-            setDirY(-1);
-        } else if (getDirX() == 0 && getDirY() == -1) {
-            setDirX(1);
-            setDirY(0);
-        } else if (getDirX() == 1 && getDirY() == 0) {
-            setDirX(0);
-            setDirY(1);
-        } else if (getDirX() == 0 && getDirY() == 1) {
-            setDirX(-1);
-            setDirY(0);
-        }
-    }
-    /**
-     * A method that changes the direction of the car to the right by 90 degrees
-     */
+        if (position.getDirX() == -1 && position.getDirY() == 0) {
+            setXYDir(0,-1);
+        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
+            setXYDir(1,0);
+        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
+            setXYDir(0,1);
+        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
+            setXYDir(-1,0);
 
-    public void turnRight() {
-        if (getDirX() == -1 && getDirY() == 0) {
-            setDirX(0);
-            setDirY(1);
-        } else if (getDirX() == 0 && getDirY() == -1) {
-            setDirX(-1);
-            setDirY(0);
-        } else if (getDirX() == 1 && getDirY() == 0) {
-            setDirX(0);
-            setDirY(-1);
-        } else if (getDirX() == 0 && getDirY() == 1) {
-            setDirX(1);
-            setDirY(0);
         }
     }
+    public void setXYDir(int x, int y){
+        position.setDirY(y);
+        position.setDirX(x);
+    }
+
     public abstract void move();
 
     /**
@@ -229,7 +130,9 @@ public abstract class Movable implements IMovable {
      *
      * @return return a double value
      */
-    public abstract double speedFactor();
+    public double speedFactor(){
+        return this.engine.speedFactor();
+    }
 
 
 
@@ -249,29 +152,9 @@ public abstract class Movable implements IMovable {
     public String getModelName() {
         return modelName;
     }
-    /**
-     * A getter method that
-     *
-     * @return returns the number of doors of the car
-     */
-    public int getNrDoors() {
-        return nrDoors;
-    }
-    /**
-     * Setter method that sets the Number of doors of the car
-     *
-     * @param nrDoors in int
-     */
-    public void setNrDoors(int nrDoors) {
-        this.nrDoors = nrDoors;
-    }
-    /**
-     * A getter method that gives you the enginePower of the car
-     *
-     * @return returns as a double
-     */
+
     public double getEnginePower() {
-        return enginePower;
+        return this.engine.getEnginePower();
     }
     /**
      * Setter methods that sets the enginePower of the car
@@ -279,7 +162,7 @@ public abstract class Movable implements IMovable {
      * @param enginePower in the form of double
      */
     public void setEnginePower(double enginePower) {
-        this.enginePower = enginePower;
+        this.engine.setEnginePower(enginePower);
     }
 
     /**
@@ -297,22 +180,6 @@ public abstract class Movable implements IMovable {
      */
     public double getCurrentSpeed() {
         return currentSpeed;
-    }
-    /**
-     * A getter method that returns the colour of the car
-     *
-     * @return returns a colour
-     */
-    public Color getColor() {
-        return color;
-    }
-    /**
-     * A setter method that sets the colour of the car
-     *
-     * @param clr Color
-     */
-    public void setColor(Color clr) {
-        color = clr;
     }
 
 }
