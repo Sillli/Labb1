@@ -1,8 +1,8 @@
 import java.awt.*;
 
 /**
- *  Class that holds directions and positions
- *  Implements the interface Movable
+ * Class that holds directions and positions
+ * Implements the interface Movable
  */
 public abstract class Movable implements IMovable {
     /**
@@ -13,39 +13,41 @@ public abstract class Movable implements IMovable {
     public Chassi chassi;
     public Engine engine;
     protected double currentSpeed; // The current speed of the car
-    private String modelName; // The car model name
+    protected String modelName; // The car model name
 
     public Movable() {
-        this.currentSpeed= 0;
+        this.currentSpeed = 0;
     }
 
     @Override
     public void turnRight() {
         if (position.getDirX() == -1 && position.getDirY() == 0) {
-            setXYDir(-1,0);
+            setXYDir(-1, 0);
         } else if (position.getDirX() == 0 && position.getDirY() == -1) {
-            setXYDir(-1,0);
+            setXYDir(-1, 0);
         } else if (position.getDirX() == 1 && position.getDirY() == 0) {
-            setXYDir(0,1);
+            setXYDir(0, 1);
         } else if (position.getDirX() == 0 && position.getDirY() == 1) {
-            setXYDir(1,0);
+            setXYDir(1, 0);
         }
     }
+
     @Override
     public void turnLeft() {
 
         if (position.getDirX() == -1 && position.getDirY() == 0) {
-            setXYDir(0,-1);
+            setXYDir(0, -1);
         } else if (position.getDirX() == 0 && position.getDirY() == -1) {
-            setXYDir(1,0);
+            setXYDir(1, 0);
         } else if (position.getDirX() == 1 && position.getDirY() == 0) {
-            setXYDir(0,1);
+            setXYDir(0, 1);
         } else if (position.getDirX() == 0 && position.getDirY() == 1) {
-            setXYDir(-1,0);
+            setXYDir(-1, 0);
 
         }
     }
-    public void setXYDir(int x, int y){
+
+    public void setXYDir(int x, int y) {
         position.setDirY(y);
         position.setDirX(x);
     }
@@ -58,26 +60,28 @@ public abstract class Movable implements IMovable {
      * @param amount in the form of a double
      */
     public void brake(double amount) {
-        if (amount >=1){
-            amount =1;
-        }else if (amount <= 0){
-            amount=0;
+        if (amount >= 1) {
+            amount = 1;
+        } else if (amount <= 0) {
+            amount = 0;
         }
         decrementSpeed(amount);
     }
+
     /**
      * A method that uses the incrementSpeed method to increas the speed of the car.
      *
      * @param amount in the form of a double
      */
     public void gas(double amount) {
-        if (amount >=1){
-            amount=1;
-        }else if (amount <= 0){
-            amount=0;
+        if (amount >= 1) {
+            amount = 1;
+        } else if (amount <= 0) {
+            amount = 0;
         }
         incrementSpeed(amount);
     }
+
     /**
      * A helper method for decrementSpeed methods that takes a
      *
@@ -89,23 +93,27 @@ public abstract class Movable implements IMovable {
         decrement = (getCurrentSpeed() - speedFactor() * amount);
         return decrement;
     }
-    public double incrementHelper(double amount){
+
+    public double incrementHelper(double amount) {
         double increment;
-        increment= (getCurrentSpeed() + speedFactor()*amount);
+        increment = (getCurrentSpeed() + speedFactor() * amount);
         return increment;
     }
+
     /**
      * A method that sets the current speed to 0
      */
     public void stopEngine() {
         currentSpeed = 0;
     }
+
     /**
      * A method that sets the currentSpeed to a starting value of 0.1
      */
     public void startEngine() {
         currentSpeed = 0.1;
     }
+
     /**
      * Calculates the decrement of speed using helper function decrementHelper and 0, the 0 represents a car that is not moving.
      *
@@ -130,7 +138,7 @@ public abstract class Movable implements IMovable {
      *
      * @return return a double value
      */
-    public double speedFactor(){
+    public double speedFactor() {
         return this.engine.speedFactor();
     }
 
@@ -142,6 +150,7 @@ public abstract class Movable implements IMovable {
     public void setModelName(String modelName) {
         this.modelName = modelName;
     }
+
     /**
      * A getter Methods that gives the car modelsName
      *
@@ -154,6 +163,7 @@ public abstract class Movable implements IMovable {
     public double getEnginePower() {
         return this.engine.getEnginePower();
     }
+
     /**
      * Setter methods that sets the enginePower of the car
      *
@@ -171,6 +181,7 @@ public abstract class Movable implements IMovable {
     public void setCurrentSpeed(int currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
+
     /**
      * A getter method that gives you the currentSpeed of the car
      *
@@ -179,5 +190,6 @@ public abstract class Movable implements IMovable {
     public double getCurrentSpeed() {
         return currentSpeed;
     }
+
 
 }

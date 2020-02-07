@@ -75,7 +75,7 @@ public class Testing {
 
     @Test
     public void testingSpeedFactorSaab() {
-        saab.setTurboOn();
+        //saab.setTurboOn();
         assertTrue(saab.speedFactor() == saab.getEnginePower() * 0.013);
 
     }
@@ -102,7 +102,7 @@ public class Testing {
 
     @Test
     public void testIncrementSpeedSaab() {
-        saab.setTurboOn();
+        //saab.setTurboOn();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         //System.out.println(saab.getCurrentSpeed());
@@ -112,7 +112,7 @@ public class Testing {
 
     @Test
     public void testSetTurboOff() {
-        saab.setTurboOff();
+     //   saab.setTurboOff();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -269,7 +269,7 @@ public class Testing {
         volvo.position.setPosX(4);
         Volvo240 volvo2 = new Volvo240();
         volvo2.position.setPosX(-4);
-        assertTrue(volvo.position.getDistanceX(volvo2) == 8);
+        assertTrue(volvo.position.getDistanceX(volvo2.position) == 8);
     }
 
     @Test
@@ -277,7 +277,7 @@ public class Testing {
         Volvo240 volvo2 = new Volvo240();
         volvo.position.setPosY(6);
         volvo2.position.setPosY(10);
-        assertTrue(volvo2.position.getDistanceY(volvo) == 4);
+        assertTrue(volvo2.position.getDistanceY(volvo.position) == 4);
     }
 
 
