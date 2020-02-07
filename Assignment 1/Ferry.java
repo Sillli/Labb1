@@ -6,7 +6,6 @@ public class Ferry extends Movable implements IStoreCars {
     private Deque<Car> cars = new LinkedList<>();
     private Caross hull;
     private Engine engine;
-
     private final int maxCars;
 
     public Ferry(int maxCars, int nrdoors, Color color, double enginepower, double trimfactor, boolean carturbo) {
