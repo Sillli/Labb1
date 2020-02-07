@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ * A class that can be used for any class that needs doors & a color.
+ * Contains setters and getters.
+ */
 public class Caross {
 
     private int nrDoors;

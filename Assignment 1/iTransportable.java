@@ -1,4 +1,4 @@
 public interface iTransportable {
 
-    public void Tansported();
+    public void Transported();
 }
