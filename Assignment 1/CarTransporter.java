@@ -11,7 +11,7 @@ public class CarTransporter extends Truck implements IStoreCars {
         this.position = new Position(0,0);
         this.flatbed = new Flatbed();
         this.engine = new EngineWithTurbo(400);
-        this.caross = new Caross(2,Color.red);
+        this.chassi = new Chassi(2,Color.red);
 
     }
 

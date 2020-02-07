@@ -4,15 +4,15 @@ import java.util.LinkedList;
 
 public class Ferry extends Movable implements IStoreCars {
     private Deque<Car> cars = new LinkedList<>();
-    private Caross hull;
+    private Chassi hull;
     private Engine engine;
 
     private final int maxCars;
 
-    public Ferry(int maxCars, int nrdoors, Color color, double enginepower, double trimfactor, boolean carturbo) {
+    public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {
         this.maxCars = maxCars;
-        this.hull = new Caross(nrdoors, color);
-        this.engine = new Engine(enginepower, trimfactor, carturbo);
+        this.hull = new Chassi(nrdoors, color);
+        this.engine = new EngineDefault(enginepower);
 
     }
 

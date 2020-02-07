@@ -4,12 +4,12 @@ import java.awt.*;
  * A class that can be used for any class that needs doors & a color.
  * Contains setters and getters.
  */
-public class Caross {
+public class Chassi {
 
     private int nrDoors;
     private Color color;
 
-    public Caross(int nrDoors, Color color) {
+    public Chassi(int nrDoors, Color color) {
         this.nrDoors = nrDoors;
         this.color = color;
     }
