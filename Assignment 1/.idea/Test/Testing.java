@@ -235,11 +235,11 @@ public class Testing {
     public void testOnLoadingCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
         carTransporter.position.setPosX(0);
-        carTransporter.setPosY(0);
+        carTransporter.position.setPosY(0);
         carTransporter.flatbed.setFlatbedAngle(70);
         Volvo240 volvo = new Volvo240();
-        volvo.setPosX(1);
-        volvo.setPosY(1);
+        volvo.position.setPosX(1);
+        volvo.position.setPosY(1);
         carTransporter.onLoadingCar(volvo);
         assertTrue(carTransporter.stack.size() == 1);
     }
@@ -247,10 +247,10 @@ public class Testing {
     @Test
     public void testOffLoadingCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
-        carTransporter.setPosX(0);
-        carTransporter.setPosX(0);
-        volvo.setPosY(1);
-        volvo.setPosX(1);
+        carTransporter.position.setPosX(0);
+        carTransporter.position.setPosX(0);
+        volvo.position.setPosY(1);
+        volvo.position.setPosX(1);
         carTransporter.flatbed.setFlatbedAngle(70);
         Volvo240 volvo = new Volvo240();
         carTransporter.onLoadingCar(volvo);
@@ -266,18 +266,18 @@ public class Testing {
 
     @Test
     public void testDistanceX() {
-        volvo.setPosX(4);
+        volvo.position.setPosX(4);
         Volvo240 volvo2 = new Volvo240();
-        volvo2.setPosX(-4);
-        assertTrue(volvo.getDistanceX(volvo2) == 8);
+        volvo2.position.setPosX(-4);
+        assertTrue(volvo.position.getDistanceX(volvo2) == 8);
     }
 
     @Test
     public void testDistanceY() {
         Volvo240 volvo2 = new Volvo240();
-        volvo.setPosY(6);
-        volvo2.setPosY(10);
-        assertTrue(volvo2.getDistanceY(volvo) == 4);
+        volvo.position.setPosY(6);
+        volvo2.position.setPosY(10);
+        assertTrue(volvo2.position.getDistanceY(volvo) == 4);
     }
 
 
