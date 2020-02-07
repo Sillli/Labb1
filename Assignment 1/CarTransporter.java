@@ -4,18 +4,15 @@ import java.util.Stack;
 public class CarTransporter extends Truck implements IStoreCars {
 
     private final int maxLoadedCars = 6;
-    private final static double trimFactor = 1.10;
     private Stack<Car> stack = new Stack<>();
 
     public CarTransporter() {
-        super(0, 1, 0, 0, 2, 400, 0, Color.black,
-                "Mercedes");
+        super("Mercedes");
+        this.position = new Position(0,0);
         this.flatbed = new Flatbed();
-    }
+        this.engine = new EngineWithTurbo(400);
+        this.caross = new Caross(2,Color.red);
 
-    @Override
-    public double speedFactor() {
-        return getEnginePower() * 0.01 * trimFactor;
     }
 
     /**
