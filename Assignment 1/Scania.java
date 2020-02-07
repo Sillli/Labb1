@@ -11,7 +11,7 @@ public class Scania extends Truck {
      */
     public Scania() {
         super("Scania");
-        this.caross = new Caross(2, Color.red);
+        this.chassi = new Chassi(2, Color.red);
         this.engine = new EngineWithTurbo(400);
         this.position = new Position(0, 0);
         this.flatbed = new Flatbed();
@@ -64,14 +64,5 @@ public class Scania extends Truck {
         }
 
     }
-
-    /**
-     * @return the speedfactor of the scania-truck
-     */
-    @Override
-    public double speedFactor() {
-        return getEnginePower() * 0.01 * trimFactor;
-    }
-
 
 }
