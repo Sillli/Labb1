@@ -1,9 +1,15 @@
+/**
+ * A class that contains positions and directions.
+ * Can be used by any class that is in need of this.
+ * Contains setters and getters.
+ */
+
 public class Position {
 
     public double PosX;
     public double PosY;
     public int DirX;
-    public  int DirY;
+    public int DirY;
 
     public Position(double posX, double posY) {
         PosX = posX;
@@ -42,10 +48,12 @@ public class Position {
     public void setPosY(double posY) {
         PosY = posY;
     }
-    public double getDistanceX(Position other){
-        return Math.abs(other.getPosX()-this.getPosX());
+
+    public double getDistanceX(Position other) {
+        return Math.abs(other.getPosX() - this.getPosX());
     }
-    public double getDistanceY(Position other){
-        return Math.abs(other.getPosY()-this.getPosY());
+
+    public double getDistanceY(Position other) {
+        return Math.abs(other.getPosY() - this.getPosY());
     }
 }

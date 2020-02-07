@@ -10,7 +10,7 @@ public abstract class Movable implements IMovable {
      */
 
     public Position position;
-    public Caross caross;
+    public Chassi chassi;
     public Engine engine;
     protected double currentSpeed; // The current speed of the car
     private String modelName; // The car model name

@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Truck extends Movable{
+public abstract class Truck extends Movable {
     protected Flatbed flatbed;
 
 
@@ -24,9 +24,9 @@ public abstract class Truck extends Movable{
             System.out.println("Flatbed is up");
         } else if (flatbed.getFlatbedAngle() == 0) {
             if (position.getDirX() != 0) {
-                position.setPosX( (position.getPosX() + position.getDirX() * getCurrentSpeed()));
+                position.setPosX((position.getPosX() + position.getDirX() * getCurrentSpeed()));
             } else if (position.getDirY() != 0) {
-                position.setPosY( (position.getPosY() + position.getDirY() * getCurrentSpeed()));
+                position.setPosY((position.getPosY() + position.getDirY() * getCurrentSpeed()));
             }
         }
     }

@@ -4,18 +4,22 @@ import java.util.LinkedList;
 
 public class Ferry extends Movable implements IStoreCars {
     private Deque<Car> cars = new LinkedList<>();
-    private Caross hull;
+    private Chassi hull;
     private Engine engine;
     private final int maxCars;
 
-    public Ferry(int maxCars, int nrdoors, Color color, double enginepower, double trimfactor, boolean carturbo) {
+    public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {
         this.maxCars = maxCars;
-        this.hull = new Caross(nrdoors, color);
-        this.engine = new Engine(enginepower, trimfactor, carturbo);
+        this.hull = new Chassi(nrdoors, color);
+        this.engine = new EngineDefault(enginepower);
 
     }
 
-
+    /**
+     * While the there is still room for cars will keep adding them.
+     * Will push the first car added to the first position.
+     * @param car
+     */
     @Override
     public void onLoadingCar(Car car) {
         while (cars.size() < maxCars) {
@@ -24,6 +28,9 @@ public class Ferry extends Movable implements IStoreCars {
 
     }
 
+    /**
+     * While there is still car on the ferry it will keep offloading cars
+     */
     @Override
     public void offLoadingCar() {
         while (cars.size() > 0) {
@@ -32,6 +39,9 @@ public class Ferry extends Movable implements IStoreCars {
 
     }
 
+    /**
+     * A method that will move the ferry the same way as the method for car.
+     */
     @Override
     public void move() {
         if (position.getDirX() != 0) {

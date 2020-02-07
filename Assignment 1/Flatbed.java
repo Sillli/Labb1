@@ -3,7 +3,6 @@ public class Flatbed {
 
     /**
      * setting the angle of the flatbed
-     *
      * @param flatbedAngle the angle the flatbed is gonna get
      */
 
