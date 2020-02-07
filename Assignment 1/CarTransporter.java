@@ -4,7 +4,7 @@ import java.util.Stack;
 public class CarTransporter extends Truck implements IStoreCars {
 
     private final int maxLoadedCars = 6;
-    private Stack<Car> stack = new Stack<>();
+    public Stack<Car> stack = new Stack<>();
 
     public CarTransporter() {
         super("Mercedes");
