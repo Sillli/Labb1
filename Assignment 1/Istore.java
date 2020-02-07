@@ -1,4 +1,4 @@
-public interface IStore <T>{
+public interface Istore <T>{
 
 
     public void onLoading(T object);

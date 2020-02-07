@@ -1,18 +1,18 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Workshop < T extends Car>  {
+public class Workshop<T extends Car> {
 
     List<T> carList = new LinkedList<>();
 
     private final int maxCars;
 
-    public Workshop(int maxCars){
+    public Workshop(int maxCars) {
         this.maxCars = maxCars;
     }
 
-    public void onLoadingCar (T car) {
-        if(carList.size()<maxCars){
+    public void onLoadingCar(T car) {
+        if (carList.size() < maxCars) {
             carList.add(car);
         }
     }
@@ -22,7 +22,6 @@ public class Workshop < T extends Car>  {
         carList.remove(car);
         return c;
     }
-
 
 
 }

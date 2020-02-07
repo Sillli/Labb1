@@ -10,18 +10,18 @@ public class Scania extends Truck {
      * constructor of the class Scania, sets it unique attributes
      */
     public Scania() {
-        super( "Scania");
-        this.caross = new Caross(2,Color.red);
+        super("Scania");
+        this.caross = new Caross(2, Color.red);
         this.engine = new EngineWithTurbo(400);
-        this.position = new Position(0,0);
+        this.position = new Position(0, 0);
         this.flatbed = new Flatbed();
 
     }
 
     /**
      * method that tips the flatbed, has a few conditions
-     * if the scania is moving this can not happen
-     * if the scania already has the flatbed up it can move the flatbed further
+     * if the Scania is moving this can not happen
+     * if the Scania already has the flatbed up it can move the flatbed further
      */
 
     public void tipFlatbed() {
@@ -33,7 +33,7 @@ public class Scania extends Truck {
     }
 
     /**
-     * Method that decides if the flatbed can be lowerd
+     * Method that decides if the flatbed can be lowered.
      */
     public void lowerFlatbed() {
         if (getCurrentSpeed() != 0) {
@@ -42,7 +42,6 @@ public class Scania extends Truck {
             setFlatbedAngle(0);
         }
     }
-
 
 
     /**

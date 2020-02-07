@@ -65,7 +65,7 @@ public class CarTransporter extends Truck implements IStoreCars {
     }
 
     /**
-     *Uses the move method in the class truck
+     *Uses the move method in the class Truck
      */
     @Override
     public void move() {
