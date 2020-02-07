@@ -1,6 +1,5 @@
 public class EngineDefault extends Engine{
 
-    private double enginePower; // Engine power of the car
     private final static double engineDefaultTrim = 1.0;
 
     public EngineDefault(double enginePower) {
