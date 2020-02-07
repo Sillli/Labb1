@@ -3,17 +3,16 @@ import java.util.Scanner;
 
 public class Scania extends Truck {
 
-    private final Flatbed flatbed;
-    public EngineWithTurbo engine;
+    private final static double trimFactor = 1.10;
 
     /**
      * constructor of the class Scania, sets it unique attributes
      */
     public Scania() {
-        super("Scania");
+        this.modelName = "Scania";
         this.chassi = new Chassi(2, Color.red);
         this.engine = new EngineWithTurbo(400);
-        this.position = new Position(0, 0,0,1);
+        this.position = new Position(0, 0, 0, 1);
         this.flatbed = new Flatbed();
 
     }

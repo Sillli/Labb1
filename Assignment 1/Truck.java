@@ -7,7 +7,7 @@ public abstract class Truck extends Movable {
     /***
      * A constructor of a Flatbed object
      */
-    public Truck(String modelName) {
+    public Truck() {
         super();
 
 

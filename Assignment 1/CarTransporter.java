@@ -8,7 +8,7 @@ public class CarTransporter extends Truck implements IStoreCars {
     public Stack<Car> stack = new Stack<>();
 
     public CarTransporter() {
-        super("Mercedes");
+        this.modelName = "Mercedes";
         this.position = new Position(0,0,0,1);
         this.flatbed = new Flatbed();
         this.engine = new EngineWithTurbo(400);

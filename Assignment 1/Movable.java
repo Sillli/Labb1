@@ -13,7 +13,7 @@ public abstract class Movable implements IMovable {
     public Chassi chassi;
     public Engine engine;
     protected double currentSpeed; // The current speed of the car
-    private String modelName; // The car model name
+    protected String modelName; // The car model name
 
     public Movable() {
         this.currentSpeed= 0;

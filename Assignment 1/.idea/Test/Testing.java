@@ -121,7 +121,7 @@ public class Testing {
 
     @Test
     public void testGetModelNameOfCar() {
-        assertTrue(saab.getModelName() == "Saab95");
+        assertTrue(volvo.getModelName() == "Volvo240");
     }
 
     @Test
