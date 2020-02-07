@@ -1,7 +1,13 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Workshop<T extends Car> {
+/**
+ * A class for workshop for cars only
+ * @param <T>
+ */
+
+public class Workshop < T extends Car>  {
+
 
     List<T> carList = new LinkedList<>();
 
