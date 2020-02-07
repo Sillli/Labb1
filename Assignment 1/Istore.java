@@ -1,6 +1,7 @@
-public interface Istore <T> {
+public interface IStore <T>{
 
-    public void onLoadingCar(T t);
 
-    public void offLoadingCar();
+    public void onLoading(T object);
+
+    public void offLoading();
 }
