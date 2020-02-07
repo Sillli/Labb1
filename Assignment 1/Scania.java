@@ -10,7 +10,10 @@ public class Scania extends Truck {
      * constructor of the class Scania, sets it unique attributes
      */
     public Scania() {
-        super(0, 1, 0, 0, 2, 400, 0, Color.red, "Scania");
+        super( "Scania");
+        this.caross = new Caross(2,Color.red);
+        this.engine = new EngineWithTurbo(400);
+        this.position = new Position(0,0);
         this.flatbed = new Flatbed();
 
     }

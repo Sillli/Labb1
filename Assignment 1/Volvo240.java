@@ -7,7 +7,7 @@ public class Volvo240 extends Car {
 
     public Volvo240() {
         super("Volvo240");
-        this.engine = new Engine(100,1.25,false);
+        this.engine = new EngineTrim(100,1.25);
         this.caross = new Caross(4,Color.black);
         stopEngine();
     }

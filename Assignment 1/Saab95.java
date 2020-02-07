@@ -11,8 +11,7 @@ public class Saab95 extends Car {
         super("Saab95");
         this.position = new Position(0,0);
         this.caross = new Caross(2, Color.red);
-        this.engine = new Engine(125,0, true);
-
+        this.engine = new EngineWithTurbo(125);
         stopEngine();
     }
 }

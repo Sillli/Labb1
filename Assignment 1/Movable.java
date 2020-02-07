@@ -134,8 +134,6 @@ public abstract class Movable implements IMovable {
         return this.engine.speedFactor();
     }
 
-
-
     /**
      * A setter method that sets the car models name
      *
