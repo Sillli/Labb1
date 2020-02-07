@@ -14,5 +14,9 @@ public class EngineWithTurbo extends Engine {
         if (this.carturbo.isTurboOn()) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
+
+    public CarTurbo getCarTurbo(){
+        return this.carturbo;
+    }
 }
 

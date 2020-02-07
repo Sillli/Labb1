@@ -86,12 +86,12 @@ public abstract class Movable implements IMovable {
      */
     public double decrementHelper(double amount) {
         double decrement;
-        decrement = (getCurrentSpeed() - speedFactor() * amount);
+        decrement = (getCurrentSpeed() - engine.speedFactor() * amount);
         return decrement;
     }
     public double incrementHelper(double amount){
         double increment;
-        increment= (getCurrentSpeed() + speedFactor()*amount);
+        increment= (this.getCurrentSpeed() + engine.speedFactor()*amount);
         return increment;
     }
     /**
@@ -122,7 +122,7 @@ public abstract class Movable implements IMovable {
      * @param amount
      */
     public void incrementSpeed(double amount) {
-        currentSpeed = Math.min(incrementHelper(amount), getEnginePower());
+        currentSpeed = Math.min(incrementHelper(amount), engine.getEnginePower());
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class Movable implements IMovable {
      * @return return a double value
      */
     public double speedFactor(){
-        return this.engine.speedFactor();
+        return engine.speedFactor();
     }
 
     /**
@@ -152,7 +152,7 @@ public abstract class Movable implements IMovable {
     }
 
     public double getEnginePower() {
-        return this.engine.getEnginePower();
+        return engine.getEnginePower();
     }
     /**
      * Setter methods that sets the enginePower of the car
@@ -160,7 +160,7 @@ public abstract class Movable implements IMovable {
      * @param enginePower in the form of double
      */
     public void setEnginePower(double enginePower) {
-        this.engine.setEnginePower(enginePower);
+        engine.setEnginePower(enginePower);
     }
 
     /**
@@ -177,7 +177,7 @@ public abstract class Movable implements IMovable {
      * @return returns the speed in the form of a double
      */
     public double getCurrentSpeed() {
-        return currentSpeed;
+        return this.currentSpeed;
     }
 
 }

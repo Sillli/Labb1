@@ -4,11 +4,12 @@ import java.util.Stack;
 public class CarTransporter extends Truck implements IStoreCars {
 
     private final int maxLoadedCars = 6;
+    public EngineWithTurbo engine;
     public Stack<Car> stack = new Stack<>();
 
     public CarTransporter() {
         super("Mercedes");
-        this.position = new Position(0,0);
+        this.position = new Position(0,0,0,1);
         this.flatbed = new Flatbed();
         this.engine = new EngineWithTurbo(400);
         this.chassi = new Chassi(2,Color.red);

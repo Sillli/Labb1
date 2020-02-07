@@ -21,7 +21,7 @@ public class Testing {
 
     @Test
     public void testSpeedFactor() {
-        assertTrue(volvo.speedFactor() == 1.25);
+        assertTrue(volvo.engine.speedFactor() == 1.25);
     }
 
     @Test
@@ -75,8 +75,8 @@ public class Testing {
 
     @Test
     public void testingSpeedFactorSaab() {
-        saab.setTurboOn();
-        assertTrue(saab.speedFactor() == saab.getEnginePower() * 0.013);
+        saab.engine.carturbo.setTurboOn(true);
+        assertTrue(saab.engine.speedFactor() == saab.engine.getEnginePower() * 0.013);
 
     }
 
@@ -102,7 +102,7 @@ public class Testing {
 
     @Test
     public void testIncrementSpeedSaab() {
-        saab.setTurboOn();
+        saab.engine.carturbo.setTurboOn(true);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         //System.out.println(saab.getCurrentSpeed());
@@ -112,7 +112,7 @@ public class Testing {
 
     @Test
     public void testSetTurboOff() {
-        saab.setTurboOff();
+        saab.engine.carturbo.setTurboOn(false);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -206,14 +206,16 @@ public class Testing {
     @Test
     public void testSpeedFactorScania() {
         Scania scania = new Scania();
-        System.out.println(scania.speedFactor());
-        assertTrue(scania.speedFactor() == 4.4);
+        System.out.println(scania.engine.speedFactor());
+        assertTrue(scania.engine.speedFactor() == 4.0);
     }
 
     @Test
     public void testSpeedFactorCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
-        assertTrue(carTransporter.speedFactor() == 4.4);
+        carTransporter.engine.carturbo.setTurboOn(false);
+
+        assertTrue(carTransporter.engine.speedFactor() == 4);
     }
 
     @Test
@@ -269,7 +271,7 @@ public class Testing {
         volvo.position.setPosX(4);
         Volvo240 volvo2 = new Volvo240();
         volvo2.position.setPosX(-4);
-        assertTrue(volvo.position.getDistanceX(volvo2) == 8);
+        assertTrue(volvo.position.getDistanceX(volvo2.position) == 8);
     }
 
     @Test
@@ -277,7 +279,7 @@ public class Testing {
         Volvo240 volvo2 = new Volvo240();
         volvo.position.setPosY(6);
         volvo2.position.setPosY(10);
-        assertTrue(volvo2.position.getDistanceY(volvo) == 4);
+        assertTrue(volvo2.position.getDistanceY(volvo.position) == 4);
     }
 
 

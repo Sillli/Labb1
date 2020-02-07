@@ -11,9 +11,11 @@ public class Position {
     public int DirX;
     public int DirY;
 
-    public Position(double posX, double posY) {
+    public Position(double posX, double posY, int dirX, int dirY) {
         PosX = posX;
         PosY = posY;
+        DirX = dirX;
+        DirY = dirY;
     }
 
 

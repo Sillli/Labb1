@@ -3,7 +3,7 @@
  */
 public abstract class Engine {
 
-    private double enginePower;
+    public double enginePower;
 
     public Engine(double enginePower) {
         this.enginePower = enginePower;
@@ -18,5 +18,6 @@ public abstract class Engine {
     }
 
     public abstract double speedFactor();
+
 
 }
