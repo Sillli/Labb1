@@ -4,7 +4,9 @@ import java.awt.*;
  *  Class that holds directions and positions
  *  Implements the interface Movable
  */
-public abstract class Movable implements IMovable {
+public abstract class Movable<T extends Engine> implements IMovable {
+
+
     /**
      * initiates directions and positions
      */
@@ -86,12 +88,13 @@ public abstract class Movable implements IMovable {
      */
     public double decrementHelper(double amount) {
         double decrement;
-        decrement = (getCurrentSpeed() - engine.speedFactor() * amount);
+        decrement = (getCurrentSpeed() - speedFactor() * amount);
         return decrement;
     }
     public double incrementHelper(double amount){
         double increment;
-        increment= (this.getCurrentSpeed() + engine.speedFactor()*amount);
+        speedFactor();
+        increment= (getCurrentSpeed() + speedFactor()*amount);
         return increment;
     }
     /**

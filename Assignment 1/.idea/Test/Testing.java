@@ -75,7 +75,7 @@ public class Testing {
 
     @Test
     public void testingSpeedFactorSaab() {
-        saab.engine.carturbo.setTurboOn(true);
+        saab.engine.carTurbo.get().setTurboOn(true);
         assertTrue(saab.engine.speedFactor() == saab.engine.getEnginePower() * 0.013);
 
     }
@@ -102,7 +102,7 @@ public class Testing {
 
     @Test
     public void testIncrementSpeedSaab() {
-        saab.engine.carturbo.setTurboOn(true);
+        saab.engine.carTurbo.get().setTurboOn(true);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         //System.out.println(saab.getCurrentSpeed());
@@ -112,7 +112,7 @@ public class Testing {
 
     @Test
     public void testSetTurboOff() {
-        saab.engine.carturbo.setTurboOn(false);
+        saab.engine.carTurbo.get().setTurboOn(false);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -213,7 +213,7 @@ public class Testing {
     @Test
     public void testSpeedFactorCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
-        carTransporter.engine.carturbo.setTurboOn(false);
+        carTransporter.engine.carTurbo.get().setTurboOn(false);
 
         assertTrue(carTransporter.engine.speedFactor() == 4);
     }
@@ -283,4 +283,13 @@ public class Testing {
     }
 
 
+    @Test
+    public void testEngineVolvoWithNoturbo(){
+        Volvo240 volvo2 = new Volvo240();
+        assertTrue(!volvo2.engine.hasATurbo());
+    }
+    @Test
+    public void testVolvoEngineSetTurbo(){
+        assert(!volvo.engine.isTurboOn());
+    }
 }

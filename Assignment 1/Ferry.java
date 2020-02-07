@@ -11,7 +11,7 @@ public class Ferry extends Movable implements IStoreCars {
     public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {
         this.maxCars = maxCars;
         this.hull = new Chassi(nrdoors, color);
-        this.engine = new EngineDefault(enginepower);
+        this.engine = new Engine(enginepower,1,false);
 
     }
 
