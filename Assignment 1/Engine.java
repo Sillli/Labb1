@@ -48,8 +48,9 @@ public class Engine {
     public double speedFactor(){
         if (this.carTurbo.isPresent()){
             double turbo = 1;
-            if (this.carTurbo.get().isTurboOn()) turbo = 1.3;
-            return getEnginePower() * 0.01 * turbo;
+            if (this.carTurbo.get().isTurboOn()) {
+                turbo = 1.3;
+            }return getEnginePower() * 0.01 * turbo;
         } else{
             return this.getEnginePower() * 0.01 * getTrimFactor();
         }

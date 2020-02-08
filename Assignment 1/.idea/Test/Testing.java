@@ -292,4 +292,20 @@ public class Testing {
     public void testVolvoEngineSetTurbo(){
         assert(!volvo.engine.isTurboOn());
     }
+    @Test
+    public void testSetNrDoorsChassi(){
+        volvo.chassi.setNrDoors(5);
+        assertTrue(volvo.chassi.getNrDoors()==5);
+    }
+    @Test
+    public void testSetColorChassi(){
+        volvo.chassi.setColor(Color.blue);
+        assertTrue(volvo.chassi.getColor()==Color.blue);
+    }
+    @Test
+    public void testSetEnginePowerEngine(){
+        volvo.engine.setEnginePower(200);
+        assertTrue(volvo.engine.getEnginePower()==200);
+    }
+
 }
