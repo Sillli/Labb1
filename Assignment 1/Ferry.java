@@ -19,9 +19,9 @@ public class Ferry extends Movable implements IStoreCars {
     }
 
     /**
-     * While the there is still room for cars will keep adding them.
-     * Will push the first car added to the first position.
-     * @param car
+     * Onloads car to ferry if there is still room
+     * Adds car at the tail of the queue.
+     * @param car to be added to queue
      */
     @Override
     public void onLoadingCar(Car car) {
@@ -31,7 +31,7 @@ public class Ferry extends Movable implements IStoreCars {
     }
 
     /**
-     * While there is still car on the ferry it will keep offloading cars
+     * if there is still car on the ferry it will offload the first in the queue
      */
     @Override
     public void offLoadingCar() {
