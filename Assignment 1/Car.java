@@ -9,7 +9,7 @@ import java.awt.*;
 public abstract class Car extends Movable {
 
     public Car() {
-        super();
+
     }
 
     /**
