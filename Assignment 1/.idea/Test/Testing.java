@@ -3,6 +3,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -311,28 +313,67 @@ public class Testing {
 
 
     @Test
-    public void testEngineVolvoWithNoturbo(){
+    public void testEngineVolvoWithNoturbo() {
         Volvo240 volvo2 = new Volvo240();
         assertTrue(!volvo2.engine.hasATurbo());
     }
+
     @Test
-    public void testVolvoEngineSetTurbo(){
-        assert(!volvo.engine.isTurboOn());
+    public void testVolvoEngineSetTurbo() {
+        assert (!volvo.engine.isTurboOn());
     }
+
     @Test
-    public void testSetNrDoorsChassi(){
+    public void testSetNrDoorsChassi() {
         volvo.chassi.setNrDoors(5);
-        assertTrue(volvo.chassi.getNrDoors()==5);
+        assertTrue(volvo.chassi.getNrDoors() == 5);
     }
+
     @Test
-    public void testSetColorChassi(){
+    public void testSetColorChassi() {
         volvo.chassi.setColor(Color.blue);
-        assertTrue(volvo.chassi.getColor()==Color.blue);
+        assertTrue(volvo.chassi.getColor() == Color.blue);
     }
+
     @Test
-    public void testSetEnginePowerEngine(){
+    public void testSetEnginePowerEngine() {
         volvo.engine.setEnginePower(200);
-        assertTrue(volvo.engine.getEnginePower()==200);
+        assertTrue(volvo.engine.getEnginePower() == 200);
+    }
+
+    @Test
+    public void testOnLoadingCarFerry() {
+        Ferry ferry = new Ferry(50, 4, Color.red, 500);
+        ferry.onLoadingCar(saab);
+        System.out.println(ferry.cars);
+        assert (ferry.cars.size() == 50);
+    }
+
+    @Test
+    public void testOffLoadingCarFerry() {
+        Ferry ferry = new Ferry(50, 4, Color.red, 500);
+        ferry.offLoadingCar();
+        System.out.println(ferry.cars);
+        assert (ferry.cars.size() == 0);
+    }
+
+    @Test
+    public void testOnLoadingCarWorkshop(){
+        Workshop workshop = new Workshop(10);
+        Car car = new Saab95();
+        workshop.onLoadingCar(car);
+        System.out.println(workshop.carList);
+        assertTrue(workshop.carList.size() == 1);
+    }
+
+    @Test
+    public void testOffLoadingCarWorkshop(){
+        Workshop workshop = new Workshop(10);
+        Car car = new Saab95();
+        workshop.carList.add(car);
+        workshop.offLoadingCar(car);
+        System.out.println(workshop.carList);
+        assertTrue(workshop.carList.size() == 0);
     }
 
 

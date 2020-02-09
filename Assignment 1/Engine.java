@@ -6,18 +6,19 @@ import java.util.Optional;
 public class Engine {
 
     private double enginePower;
-    public Optional <CarTurbo> carTurbo;
+    public Optional<CarTurbo> carTurbo;
     private final double trimFactor;
 
-    public Engine(double enginePower, double trimFactor,boolean carTurbo) {
+    public Engine(double enginePower, double trimFactor, boolean carTurbo) {
         this.enginePower = enginePower;
         this.trimFactor = trimFactor;
         if (!carTurbo) {
             this.carTurbo = Optional.empty();
-        } else if(carTurbo){
+        } else if (carTurbo) {
             this.carTurbo = Optional.of(new CarTurbo(false));
         }
     }
+
     public double getEnginePower() {
         return enginePower;
     }
@@ -34,24 +35,26 @@ public class Engine {
         if (carTurbo.isPresent()) {
             return true;
         }
-        return  false;
+        return false;
     }
-    public boolean isTurboOn(){
-        if(hasATurbo()){
+
+    public boolean isTurboOn() {
+        if (hasATurbo()) {
             return carTurbo.get().isTurboOn();
-        }else if(!hasATurbo()){
+        } else if (!hasATurbo()) {
             System.out.println("CarTurbo: N/A");
         }
         return false;
     }
 
-    public double speedFactor(){
-        if (this.carTurbo.isPresent()){
+    public double speedFactor() {
+        if (this.carTurbo.isPresent()) {
             double turbo = 1;
             if (this.carTurbo.get().isTurboOn()) {
                 turbo = 1.3;
-            }return getEnginePower() * 0.01 * turbo;
-        } else{
+            }
+            return getEnginePower() * 0.01 * turbo;
+        } else {
             return this.getEnginePower() * 0.01 * getTrimFactor();
         }
     }
