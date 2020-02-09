@@ -246,11 +246,13 @@ public class Testing {
         assertTrue(carTransporter.stack.size() == 1);
     }
 
+
+
     @Test
     public void testOffLoadingCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
         carTransporter.position.setPosX(0);
-        carTransporter.position.setPosX(0);
+        carTransporter.position.setPosY(0);
         volvo.position.setPosY(1);
         volvo.position.setPosX(1);
         carTransporter.flatbed.setFlatbedAngle(70);
@@ -263,9 +265,34 @@ public class Testing {
 
     @Test
     public void testTransported() {
-
+        CarTransporter carTransport = new CarTransporter();
+        Saab95 saab = new Saab95();
+        carTransport.stack.add(saab);
+        carTransport.position.setPosX(0);
+        carTransport.position.setPosY(0);
+        saab.position.setPosX(0);
+        saab.position.setPosY(0);
+        carTransport.setCurrentSpeed(10);
+        carTransport.move();
+        assertTrue(saab.position.getPosY() == carTransport.position.getPosY());
     }
 
+    @Test
+    public void testTransporet2(){
+        CarTransporter carTransport = new CarTransporter();
+        Saab95 saab = new Saab95();
+        carTransport.stack.add(saab);
+        carTransport.position.setPosX(1);
+        carTransport.position.setPosY(1);
+        saab.position.setPosX(0);
+        saab.position.setPosY(0);
+        carTransport.transported();
+        assertTrue(saab.position.getPosY() == carTransport.position.getPosY());
+    }
+
+
+
+//KLAR
     @Test
     public void testDistanceX() {
         volvo.position.setPosX(4);
@@ -273,7 +300,7 @@ public class Testing {
         volvo2.position.setPosX(-4);
         assertTrue(volvo.position.getDistanceX(volvo2.position) == 8);
     }
-
+//KLAR
     @Test
     public void testDistanceY() {
         Volvo240 volvo2 = new Volvo240();
@@ -308,4 +335,33 @@ public class Testing {
         assertTrue(volvo.engine.getEnginePower()==200);
     }
 
+
+    @Test
+    public void testOnloadingFerry(){
+        Ferry ferry = new Ferry(2,2, Color.RED, 1000);
+        ferry.onLoadingCar(new Volvo240());
+        ferry.onLoadingCar(new Saab95());
+        ferry.onLoadingCar(new Volvo240());
+        assertTrue(ferry.getMaxCars()== ferry.getCars().size());
+    }
+
+    @Test
+    public void testOffloadingFerry(){
+        Ferry ferry = new Ferry(2,2,Color.RED, 1000);
+        ferry.onLoadingCar(new Volvo240());
+        ferry.offLoadingCar();
+        assertTrue(ferry.getCars().size() == 0);
+    }
+
+    @Test
+    public void testMoveFerry() {
+        Ferry ferry = new Ferry(2,2, Color.RED, 1000);
+        ferry.setCurrentSpeed(10);
+        ferry.position.setPosX(0);
+        ferry.position.setPosY(0);
+        ferry.move();
+        System.out.println(ferry.position.getPosX());
+        System.out.println(ferry.position.getPosY());
+        assertTrue(ferry.position.getPosX() != 0 || ferry.position.getPosY() != 0);
+    }
 }

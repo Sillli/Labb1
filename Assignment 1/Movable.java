@@ -112,7 +112,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
     /**
      * Calculates the decrement of speed using helper function decrementHelper and 0, the 0 represents a car that is not moving.
      *
-     * @param amount
+     * @param amount difference in speed
      */
     public void decrementSpeed(double amount) {
         currentSpeed = Math.max(decrementHelper(amount), 0);
@@ -122,7 +122,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
      * Calculates the increment of the speed by using helper function incrementHelper and getEnginePower
      * chooses the one with the lowest value of the two of them.
      *
-     * @param amount
+     * @param amount difference in speed
      */
     public void incrementSpeed(double amount) {
         currentSpeed = Math.min(incrementHelper(amount), engine.getEnginePower());
