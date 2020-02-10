@@ -53,14 +53,6 @@ public abstract class Movable implements IMovable {
     public abstract void move();
 
 
-
-    /**
-     * speedFactor() is part of the calculation of the speed of a car
-     *
-     * @return return a double value
-     */
-    public abstract double speedFactor();
-
     /**
      * A setter method that sets the car models name
      *

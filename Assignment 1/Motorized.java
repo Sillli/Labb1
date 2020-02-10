@@ -47,11 +47,22 @@ public abstract class Motorized<T extends Engine> extends Movable {
         decrement = (getCurrentSpeed() - speedFactor() * amount);
         return decrement;
     }
-    public double incrementHelper(double amount){
+
+    /**
+     * A helper method for incrementSpeed methods that takes a
+     *
+     * @param amount in the for of a double and
+     * @return returns a double
+     */
+    public double incrementHelper(double amount) {
         double increment;
         speedFactor();
-        increment= (getCurrentSpeed() + speedFactor()*amount);
+        increment = (getCurrentSpeed() + speedFactor() * amount);
         return increment;
+    }
+
+    public double speedFactor() {
+        return getEngine().speedFactor();
     }
 
     /**
@@ -80,6 +91,7 @@ public abstract class Motorized<T extends Engine> extends Movable {
     public void stopEngine() {
         currentSpeed = 0;
     }
+
     /**
      * A method that sets the currentSpeed to a starting value of 0.1
      */

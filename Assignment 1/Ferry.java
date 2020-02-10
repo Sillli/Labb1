@@ -7,7 +7,7 @@ public class Ferry extends Motorized<Engine> implements IStoreCars {
     private Deque<Car> cars = new LinkedList<>();
 
     private Chassi hull;
-    private Engine engine;
+    protected Engine engine;
     private final int maxCars;
 
     public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {
