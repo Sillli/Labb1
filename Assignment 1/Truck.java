@@ -9,8 +9,6 @@ public abstract class Truck<T extends Engine> extends Motorized<T> {
      */
     public Truck() {
         super();
-
-
     }
 
     /**

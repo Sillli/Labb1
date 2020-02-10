@@ -329,21 +329,6 @@ public class Testing {
         assertTrue(volvo.engine.getEnginePower() == 200);
     }
 
-  /*  @Test
-    public void testOnLoadingCarFerry() {
-        Ferry ferry = new Ferry(50, 4, Color.red, 500);
-        ferry.onLoadingCar(saab);
-        System.out.println(ferry.cars);
-        assert (ferry.cars.size() == 50);
-    }
-
-    @Test
-    public void testOffLoadingCarFerry() {
-        Ferry ferry = new Ferry(50, 4, Color.red, 500);
-        ferry.offLoadingCar();
-        System.out.println(ferry.cars);
-        assert (ferry.cars.size() == 0);
-    }*/
 
     @Test
     public void testOnLoadingCarWorkshop() {

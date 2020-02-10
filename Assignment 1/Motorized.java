@@ -7,7 +7,6 @@ public abstract class Motorized<T extends Engine> extends Movable {
 
     }
 
-
     /**
      * A method that uses the decrementSpeed method to lower the speed of the car.
      *

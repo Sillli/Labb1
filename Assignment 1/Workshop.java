@@ -30,7 +30,6 @@ public class Workshop<T extends Car> {
         return c;
     }
 
-
 }
 
 /*
