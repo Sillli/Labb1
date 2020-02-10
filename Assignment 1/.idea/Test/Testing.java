@@ -394,4 +394,11 @@ public class Testing {
         System.out.println(ferry.position.getPosY());
         assertTrue(ferry.position.getPosX() != 0 || ferry.position.getPosY() != 0);
     }
+
+    @Test
+    public void testEngineWithFerry(){
+        Ferry ferry = new Ferry(10,42,Color.black,1000);
+        System.out.println(ferry.engine.speedFactor());
+        assertTrue(ferry.engine.speedFactor()==10);
+    }
 }
