@@ -2,12 +2,12 @@ import java.awt.*;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class Ferry extends Movable<Engine> implements IStoreCars {
+public class Ferry extends Motorized<Engine> implements IStoreCars {
 
     private Deque<Car> cars = new LinkedList<>();
 
     private Chassi hull;
-    public Engine engine;
+    private Engine engine;
     private final int maxCars;
 
     public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {

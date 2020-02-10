@@ -249,7 +249,6 @@ public class Testing {
     }
 
 
-
     @Test
     public void testOffLoadingCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
@@ -280,7 +279,7 @@ public class Testing {
     }
 
     @Test
-    public void testTransporet2(){
+    public void testTransporet2() {
         CarTransporter carTransport = new CarTransporter();
         Saab95 saab = new Saab95();
         carTransport.stack.add(saab);
@@ -293,8 +292,7 @@ public class Testing {
     }
 
 
-
-//KLAR
+    //KLAR
     @Test
     public void testDistanceX() {
         volvo.position.setPosX(4);
@@ -302,7 +300,8 @@ public class Testing {
         volvo2.position.setPosX(-4);
         assertTrue(volvo.position.getDistanceX(volvo2.position) == 8);
     }
-//KLAR
+
+    //KLAR
     @Test
     public void testDistanceY() {
         Volvo240 volvo2 = new Volvo240();
@@ -347,7 +346,7 @@ public class Testing {
     }*/
 
     @Test
-    public void testOnLoadingCarWorkshop(){
+    public void testOnLoadingCarWorkshop() {
         Workshop workshop = new Workshop(10);
         Car car = new Saab95();
         workshop.onLoadingCar(car);
@@ -356,7 +355,7 @@ public class Testing {
     }
 
     @Test
-    public void testOffLoadingCarWorkshop(){
+    public void testOffLoadingCarWorkshop() {
         Workshop workshop = new Workshop(10);
         Car car = new Saab95();
         workshop.carList.add(car);
@@ -367,17 +366,17 @@ public class Testing {
 
 
     @Test
-    public void testOnloadingFerry(){
-        Ferry ferry = new Ferry(2,2, Color.RED, 1000);
+    public void testOnloadingFerry() {
+        Ferry ferry = new Ferry(2, 2, Color.RED, 1000);
         ferry.onLoadingCar(new Volvo240());
         ferry.onLoadingCar(new Saab95());
-        ferry.onLoadingCar(new Volvo240());
-        assertTrue(ferry.getMaxCars()== ferry.getCars().size());
+        //  ferry.onLoadingCar(new Volvo240());
+        assertTrue(ferry.getMaxCars() == ferry.getCars().size());
     }
 
     @Test
-    public void testOffloadingFerry(){
-        Ferry ferry = new Ferry(2,2,Color.RED, 1000);
+    public void testOffloadingFerry() {
+        Ferry ferry = new Ferry(2, 2, Color.RED, 1000);
         ferry.onLoadingCar(new Volvo240());
         ferry.offLoadingCar();
         assertTrue(ferry.getCars().size() == 0);
@@ -385,7 +384,7 @@ public class Testing {
 
     @Test
     public void testMoveFerry() {
-        Ferry ferry = new Ferry(2,2, Color.RED, 1000);
+        Ferry ferry = new Ferry(2, 2, Color.RED, 1000);
         ferry.setCurrentSpeed(10);
         ferry.position.setPosX(0);
         ferry.position.setPosY(0);

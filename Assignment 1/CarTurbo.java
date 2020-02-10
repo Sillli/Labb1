@@ -1,6 +1,6 @@
 import java.util.Optional;
 
-public class  CarTurbo{
+public class CarTurbo {
 
     /**
      * A class that can be used by any class that needs a turbo.
