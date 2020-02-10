@@ -1,6 +1,6 @@
 public class EngineTurbo extends Engine {
 
-    public CarTurbo carTurbo;
+    protected CarTurbo carTurbo;
 
 
     public EngineTurbo(double enginePower) {

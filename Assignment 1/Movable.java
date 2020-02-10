@@ -9,10 +9,8 @@ public abstract class Movable implements IMovable {
      * initiates directions and positions
      */
 
-    public Position position;
-   // public Chassi chassi;
-    //public T engine;
-    public double currentSpeed; // The current speed of the car
+    protected Position position;
+    protected double currentSpeed; // The current speed of the car
     protected String modelName; // The car model name
 
     public Movable() {

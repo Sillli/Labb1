@@ -5,7 +5,7 @@ public class CarTransporter extends Truck<EngineTurbo> implements IStoreCars {
 
     private final int maxLoadedCars = 6;
 
-    public Stack<Car> stack = new Stack<>();
+    protected Stack<Car> stack = new Stack<>();
 
     public CarTransporter() {
         this.modelName = "Mercedes";
