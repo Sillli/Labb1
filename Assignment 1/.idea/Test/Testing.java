@@ -77,7 +77,7 @@ public class Testing {
 
     @Test
     public void testingSpeedFactorSaab() {
-        saab.engine.carTurbo.get().setTurboOn(true);
+        saab.getEngine().carTurbo.setTurboOn(true);
         assertTrue(saab.engine.speedFactor() == saab.engine.getEnginePower() * 0.013);
 
     }
@@ -104,17 +104,17 @@ public class Testing {
 
     @Test
     public void testIncrementSpeedSaab() {
-        saab.engine.carTurbo.get().setTurboOn(true);
+        saab.engine.carTurbo.setTurboOn(true);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
-        //System.out.println(saab.getCurrentSpeed());
+        System.out.println(saab.getCurrentSpeed());
         assertTrue(saab.getCurrentSpeed() == 26.25);
 
     }
 
     @Test
     public void testSetTurboOff() {
-        saab.engine.carTurbo.get().setTurboOn(false);
+        saab.engine.carTurbo.setTurboOn(false);
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -215,7 +215,7 @@ public class Testing {
     @Test
     public void testSpeedFactorCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
-        carTransporter.engine.carTurbo.get().setTurboOn(false);
+        carTransporter.engine.carTurbo.setTurboOn(false);
 
         assertTrue(carTransporter.engine.speedFactor() == 4);
     }
@@ -311,17 +311,6 @@ public class Testing {
         assertTrue(volvo2.position.getDistanceY(volvo.position) == 4);
     }
 
-
-    @Test
-    public void testEngineVolvoWithNoturbo() {
-        Volvo240 volvo2 = new Volvo240();
-        assertTrue(!volvo2.engine.hasATurbo());
-    }
-
-    @Test
-    public void testVolvoEngineSetTurbo() {
-        assert (!volvo.engine.isTurboOn());
-    }
 
     @Test
     public void testSetNrDoorsChassi() {

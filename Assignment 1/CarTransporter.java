@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Stack;
 
-public class CarTransporter extends Truck implements IStoreCars {
+public class CarTransporter extends Truck<EngineTurbo> implements IStoreCars {
 
     private final int maxLoadedCars = 6;
 
@@ -11,7 +11,7 @@ public class CarTransporter extends Truck implements IStoreCars {
         this.modelName = "Mercedes";
         this.position = new Position(0,0,0,1);
         this.flatbed = new Flatbed();
-        this.engine = new Engine(400,1,true);
+        this.engine = new EngineTurbo(400);
         this.chassi = new Chassi(2,Color.red);
 
     }

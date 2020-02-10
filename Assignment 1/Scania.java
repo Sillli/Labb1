@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Scanner;
 
-public class Scania extends Truck {
+public class Scania extends Truck<EngineTurbo> {
 
 
     /**
@@ -10,7 +10,7 @@ public class Scania extends Truck {
     public Scania() {
         this.modelName = "Scania";
         this.chassi = new Chassi(2, Color.red);
-        this.engine = new Engine(400,1,true);
+        this.engine = new EngineTurbo(400);
         this.position = new Position(0, 0, 0, 1);
         this.flatbed = new Flatbed();
 

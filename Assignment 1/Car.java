@@ -6,7 +6,7 @@ import java.awt.*;
  * An abstract class representing a Car that extends the abstract class Movable
  */
 
-public abstract class Car extends Movable {
+public abstract class Car<T extends Engine> extends Movable<T> {
 
     public Car() {
 

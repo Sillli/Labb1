@@ -1,5 +1,3 @@
-import java.awt.*;
-
 /**
  *  Class that holds directions and positions
  *  Implements the interface Movable
@@ -13,12 +11,12 @@ public abstract class Movable<T extends Engine> implements IMovable {
 
     public Position position;
     public Chassi chassi;
-    public Engine engine;
-    protected double currentSpeed; // The current speed of the car
+    public T engine;
+    public double currentSpeed; // The current speed of the car
     protected String modelName; // The car model name
 
     public Movable() {
-        this.currentSpeed= 0;
+        this.currentSpeed = 0;
     }
 
     @Override
@@ -125,7 +123,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
      * @param amount difference in speed
      */
     public void incrementSpeed(double amount) {
-        currentSpeed = Math.min(incrementHelper(amount), engine.getEnginePower());
+        currentSpeed = Math.min(incrementHelper(amount), getEngine().getEnginePower());
     }
 
     /**
@@ -134,7 +132,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
      * @return return a double value
      */
     public double speedFactor(){
-        return engine.speedFactor();
+        return getEngine().speedFactor();
     }
 
     /**
@@ -155,7 +153,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
     }
 
     public double getEnginePower() {
-        return engine.getEnginePower();
+        return getEngine().getEnginePower();
     }
     /**
      * Setter methods that sets the enginePower of the car
@@ -163,7 +161,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
      * @param enginePower in the form of double
      */
     public void setEnginePower(double enginePower) {
-        engine.setEnginePower(enginePower);
+        getEngine().setEnginePower(enginePower);
     }
 
     /**
@@ -171,7 +169,7 @@ public abstract class Movable<T extends Engine> implements IMovable {
      *
      * @param currentSpeed in the form of int
      */
-    public void setCurrentSpeed(int currentSpeed) {
+    public void setCurrentSpeed( double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
     /**
@@ -180,7 +178,10 @@ public abstract class Movable<T extends Engine> implements IMovable {
      * @return returns the speed in the form of a double
      */
     public double getCurrentSpeed() {
-        return this.currentSpeed;
+        return currentSpeed;
     }
 
+    public T getEngine(){
+        return engine;
+    }
 }
