@@ -6,10 +6,10 @@
 
 public class Position {
 
-    public double PosX;
-    public double PosY;
-    public int DirX;
-    public int DirY;
+    protected double PosX;
+    protected double PosY;
+    protected int DirX;
+    protected int DirY;
 
     public Position(double posX, double posY, int dirX, int dirY) {
         PosX = posX;

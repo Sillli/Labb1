@@ -5,7 +5,7 @@ public class CarTurbo {
     /**
      * A class that can be used by any class that needs a turbo.
      */
-    public boolean TurboOn;
+    protected boolean TurboOn;
 
     public CarTurbo(boolean turboOn) {
         TurboOn = turboOn;

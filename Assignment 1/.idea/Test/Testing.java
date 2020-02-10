@@ -75,12 +75,12 @@ public class Testing {
     }
 
 
-    @Test
+   /* @Test
     public void testingSpeedFactorSaab() {
         saab.getEngine().carTurbo.setTurboOn(true);
         assertTrue(saab.engine.speedFactor() == saab.engine.getEnginePower() * 0.013);
 
-    }
+    }*/
 
     @Test
     public void testTurnLeftCarVolvo() {

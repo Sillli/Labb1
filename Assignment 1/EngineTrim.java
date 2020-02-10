@@ -1,6 +1,6 @@
 public class EngineTrim extends Engine {
 
-    public final double trimFactor;
+    protected final double trimFactor;
 
     public EngineTrim(double enginePower, double trimFactor) {
         super(enginePower);

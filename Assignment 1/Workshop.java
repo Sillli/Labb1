@@ -10,7 +10,7 @@ import java.util.List;
 public class Workshop<T extends Car> {
 
 
-    List<T> carList = new LinkedList<>();
+    protected List<T> carList = new LinkedList<>();
 
     private final int maxCars;
 
