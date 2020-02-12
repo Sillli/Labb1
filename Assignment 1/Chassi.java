@@ -6,6 +6,7 @@ import java.awt.*;
  */
 public class Chassi {
 //haha
+    //haha
     private int nrDoors;
     private Color color;
 
