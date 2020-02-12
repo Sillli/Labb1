@@ -385,4 +385,12 @@ public class Testing {
         System.out.println(ferry.engine.speedFactor());
         assertTrue(ferry.engine.speedFactor()==10);
     }
+
+    @Test
+    public void testSpeedFactorSaabMotorized(){
+        System.out.println(saab.speedFactor());
+        saab.engine.carTurbo.setTurboOn(true);
+        System.out.println(saab.speedFactor());
+        assertTrue(saab.speedFactor()==1.625 && saab.engine.speedFactor()==1.625);
+    }
 }
