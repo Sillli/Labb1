@@ -5,7 +5,7 @@ import java.awt.*;
  * Contains setters and getters.
  */
 public class Chassi {
-
+//haha
     private int nrDoors;
     private Color color;
 
