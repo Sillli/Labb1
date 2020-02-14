@@ -47,20 +47,25 @@ public class CarController {
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Motorized car : cars) {
-                    car.move();
-                    int x = (int) Math.round(car.position.getPosX());
-                    int y = (int) Math.round(car.position.getPosY());
+            for (Motorized vehicle : cars) {
+                vehicle.move();
+                int x = (int) Math.round(vehicle.position.getPosX());
+                int y = (int) Math.round(vehicle.position.getPosY());
 
-                if( y > frame.drawPanel.getHeight()){
-                    car.position.setDirY(-1);
+                if (y > frame.drawPanel.getHeight() - 80) {
+                    vehicle.position.setDirY(-1);
+                } else if (y < 0) {
+                    vehicle.position.setDirY(1);
                 }
-                    frame.drawPanel.moveit(x, y);
-                    // repaint() calls the paintComponent method of the panel
-                    frame.drawPanel.repaint();
-                }
+                frame.drawPanel.moveit(x, y);
+                // repaint() calls the paintComponent method of the panel
+                frame.drawPanel.repaint();
+
             }
+
+
         }
+    }
 
 
     // Calls the gas method for each car once
@@ -78,22 +83,4 @@ public class CarController {
         }
     }
 
-
-
-
-    Boolean hitWall(Position car, Dimension wall) {
-        //invertDirection(car);
-        return car.getPosY() - 1 == wall.getHeight();
-    }
-
-
-
-    void invertDirection(Position direction) {
-        //   Position direction = new Position(0, 0, 0, -1);
-        if (direction.getDirY() == -1) {
-            direction.setDirY(1);
-        } else if (direction.getDirY() == 1) {
-            direction.setDirY(-1);
-        }
-    }
 }
