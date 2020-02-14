@@ -19,9 +19,6 @@ public class CarController {
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
-    public static final long SEC = 1_000_000_000;  // Nano seconds used by JavaFX
-    private long timeForLastHit;
-
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
@@ -52,23 +49,45 @@ public class CarController {
                 int x = (int) Math.round(vehicle.position.getPosX());
                 int y = (int) Math.round(vehicle.position.getPosY());
 
-                if (y > frame.drawPanel.getHeight() - 80) {
-                    vehicle.position.setDirY(-1);
-                } else if (y < 0) {
-                    vehicle.position.setDirY(1);
-                }
-                if (x > frame.drawPanel.getWidth() - 80) {
-                    vehicle.position.setDirX(-1);
-                } else if (x < 0) {
-                    vehicle.position.setDirX(1);
-                }
+                changeDirection(vehicle, x, y);
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
-
             }
 
 
+        }
+    }
+
+
+    private void changeDirection(Motorized vehicle, int x, int y) {
+        changeYDirection(vehicle, y);
+        changeXDirection(vehicle, x);
+
+
+    }
+
+    private void changeYDirection(Motorized vehicle, int y) {
+        if (y > frame.drawPanel.getHeight() - 80) {
+            vehicle.stopEngine();
+            vehicle.position.setDirY(-1);
+            vehicle.startEngine();
+        } else if (y < 0) {
+            vehicle.stopEngine();
+            vehicle.position.setDirY(1);
+            vehicle.startEngine();
+        }
+    }
+
+    private void changeXDirection(Motorized vehicle, int x) {
+        if (x > frame.drawPanel.getWidth() - 100) {
+            vehicle.stopEngine();
+            vehicle.position.setDirX(-1);
+            vehicle.startEngine();
+        } else if (x < 0) {
+            vehicle.stopEngine();
+            vehicle.position.setDirX(1);
+            vehicle.startEngine();
         }
     }
 
