@@ -83,4 +83,16 @@ public class CarController {
         }
     }
 
+    void turnLeft() {
+        for (Movable vehicle : cars) {
+            vehicle.turnLeft();
+        }
+    }
+
+    void turnRight() {
+        for (Movable vehicle : cars) {
+            vehicle.turnRight();
+        }
+    }
+
 }
