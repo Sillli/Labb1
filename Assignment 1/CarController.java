@@ -57,6 +57,11 @@ public class CarController {
                 } else if (y < 0) {
                     vehicle.position.setDirY(1);
                 }
+                if (x > frame.drawPanel.getWidth() - 80) {
+                    vehicle.position.setDirX(-1);
+                } else if (x < 0) {
+                    vehicle.position.setDirX(1);
+                }
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
