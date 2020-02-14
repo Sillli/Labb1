@@ -19,6 +19,9 @@ public class CarController {
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
+    public static final long SEC = 1_000_000_000;  // Nano seconds used by JavaFX
+    private long timeForLastHit;
+
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
@@ -45,19 +48,20 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Motorized car : cars) {
-                if (hitWall(car.position, dimension)) {
-                    invertDirection(car.position);
-                } else {
                     car.move();
                     int x = (int) Math.round(car.position.getPosX());
                     int y = (int) Math.round(car.position.getPosY());
+
+                if( y > frame.drawPanel.getHeight()){
+                    car.position.setDirY(-1);
+                }
                     frame.drawPanel.moveit(x, y);
                     // repaint() calls the paintComponent method of the panel
                     frame.drawPanel.repaint();
                 }
             }
         }
-    }
+
 
     // Calls the gas method for each car once
     void gas(int amount) {
@@ -75,10 +79,14 @@ public class CarController {
     }
 
 
-    boolean hitWall(Position car, Dimension wall) {
+
+
+    Boolean hitWall(Position car, Dimension wall) {
         //invertDirection(car);
         return car.getPosY() - 1 == wall.getHeight();
     }
+
+
 
     void invertDirection(Position direction) {
         //   Position direction = new Position(0, 0, 0, -1);
