@@ -4,9 +4,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /*
-* This class represents the Controller part in the MVC pattern.
-* It's responsibilities is to listen to the View and responds in a appropriate manner by
-* modifying the model state and the updating the view.
+ * This class represents the Controller part in the MVC pattern.
+ * It's responsibilities is to listen to the View and responds in a appropriate manner by
+ * modifying the model state and the updating the view.
  */
 
 public class CarController {
@@ -39,15 +39,16 @@ public class CarController {
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
+     * view to update its images. Change this method to your needs.
+     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.position.getPosX());
-                int y = (int) Math.round(car.position.getPosY());
-                frame.drawPanel.moveit(car,x, y);
+            for (Car vehicle : cars) {
+                vehicle.move();
+                int x = (int) Math.round(vehicle.position.getPosX());
+                int y = (int) Math.round(vehicle.position.getPosY());
+                changeDirection(vehicle, x, y);
+                frame.drawPanel.moveit(vehicle, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -115,13 +116,15 @@ public class CarController {
             car.brake(brake);
         }
     }
-    void turnTurboOn(){
-        for (Motorized<EngineTurbo> car: cars){
+
+    void turnTurboOn() {
+        for (Motorized<EngineTurbo> car : cars) {
             car.engine.carTurbo.setTurboOn(true);
         }
     }
-    void turnTurboOff(){
-        for(Motorized<EngineTurbo> car : cars){
+
+    void turnTurboOff() {
+        for (Motorized<EngineTurbo> car : cars) {
             car.engine.carTurbo.setTurboOn(false);
         }
     }
