@@ -13,9 +13,8 @@ public class Saab95 extends Car<EngineTurbo> {
         this.position = new Position(0, 0, 0, 1);
         this.chassi = new Chassi(2, Color.red);
         this.engine = new EngineTurbo(125);
-        //this.currentSpeed = 0;
         stopEngine();
     }
-//hahaha
+
 
 }
