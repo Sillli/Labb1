@@ -13,14 +13,14 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class CarView extends JFrame {
+public class CarView extends JFrame{
     private static final int X = 800;
     private static final int Y = 800;
 
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y - 240);
+    DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
     JPanel controlPanel = new JPanel();
 
@@ -52,10 +52,11 @@ public class CarView extends JFrame {
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X, Y));
+        this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
+
 
 
         SpinnerModel spinnerModel =
@@ -66,7 +67,7 @@ public class CarView extends JFrame {
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
         });
 
@@ -132,6 +133,26 @@ public class CarView extends JFrame {
             }
         });
 
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (carC.getClass().toString().equals("Saab95")) {
+                    carC.turnTurboOff();
+                } else if (carC.getClass().toString().equals("Scania")) {
+                    carC.turnTurboOff();
+                }
+            }
+        });
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (carC.getClass().toString().equals("Saab95")) {
+                    carC.turnTurboOn();
+                } else if (carC.getClass().toString().equals("Scania")) {
+                carC.turnTurboOff();
+            }
+            }
+        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
