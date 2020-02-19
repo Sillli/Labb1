@@ -1,5 +1,3 @@
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -11,41 +9,39 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-
-    private ArrayList<BufferedImage> images = new ArrayList<>();
-    //Just a single image, TODO: Generalize
-    BufferedImage saabImage;
-    BufferedImage scaniaImage;
+    // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
+    public ArrayList<Car> cars;
+    public ArrayList<Point> points;
 
-
-    // To keep track of a singel cars position;
-
-
-
-
+    // To keep track of a singel cars position
     Point volvoPoint = new Point();
-    Point saabPoint = new Point();
-    Point scaniaPoint = new Point();
 
 
-    // TODO: Make this general for all cars
-    void moveit(Motorized car, int x, int y){
-        if(car.modelName.equals("Volvo240")) {
-            volvoPoint.x = x;
-            volvoPoint.y = y;
-        }else if(car.modelName.equals("Saab95")) {
-            saabPoint.x = x;
-            saabPoint.y = y;
-        }else if(car.modelName.equals("Scania")) {
-            scaniaPoint.x = x;
-            scaniaPoint.y = y;
-        }
+
+    // TODO: Make this genereal for all cars
+    void moveit( int index, int x, int y){
+        points.get(index).x = x;
+        points.get(index).y = y;
+        //volvoPoint.x = x;
+        //volvoPoint.y = y;
+
+
 
     }
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
+
+        cars = new ArrayList <> ();
+        cars.add(new Volvo240());
+        cars.add(new Saab95());
+
+
+
+
+
+
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
@@ -55,19 +51,15 @@ public class DrawPanel extends JPanel{
             // everything is in the same main folder.
             // volvoImage = ImageIO.read(new File("Volvo240.jpg"));
 
-            // Remember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
+            // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-            saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();
         }
 
     }
-//beatch
-
 
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
@@ -75,7 +67,5 @@ public class DrawPanel extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage,saabPoint.x,saabPoint.y,null);
-        g.drawImage(scaniaImage,scaniaPoint.x,scaniaPoint.y,null);
     }
 }
