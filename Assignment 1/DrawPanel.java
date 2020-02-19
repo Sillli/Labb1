@@ -28,7 +28,7 @@ public class DrawPanel<CarPicPoint> extends JPanel{
 
 
     // TODO: Make this general for all cars
-    void moveit(Car car, int x, int y){
+    void moveit(Motorized car, int x, int y){
         if(car.modelName.equals("Volvo240")) {
             volvoPoint.x = x;
             volvoPoint.y = y;
@@ -57,7 +57,7 @@ public class DrawPanel<CarPicPoint> extends JPanel{
             // if you are starting in IntelliJ.
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-           // scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pic/Scania.jpg"));
+            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();

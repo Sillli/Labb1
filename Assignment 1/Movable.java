@@ -20,19 +20,6 @@ public abstract class Movable implements IMovable {
     @Override
     public void turnRight() {
         if (position.getDirX() == -1 && position.getDirY() == 0) {
-            setXYDir(-1,0);
-        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
-            setXYDir(-1,0);
-        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
-            setXYDir(0,1);
-        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
-            setXYDir(1,0);
-        }
-    }
-    @Override
-    public void turnLeft() {
-
-        if (position.getDirX() == -1 && position.getDirY() == 0) {
             setXYDir(0,-1);
         } else if (position.getDirX() == 0 && position.getDirY() == -1) {
             setXYDir(1,0);
@@ -40,6 +27,19 @@ public abstract class Movable implements IMovable {
             setXYDir(0,1);
         } else if (position.getDirX() == 0 && position.getDirY() == 1) {
             setXYDir(-1,0);
+        }
+    }
+    @Override
+    public void turnLeft() {
+
+        if (position.getDirX() == -1 && position.getDirY() == 0) {
+            setXYDir(0,1);
+        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
+            setXYDir(-1,0);
+        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
+            setXYDir(0,-1);
+        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
+            setXYDir(1,0);
 
         }
     }

@@ -21,16 +21,20 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Motorized> vehicle = new ArrayList<>();
 
     //methods:
 
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();
-
-        cc.cars.add(new Volvo240());
-
+        Motorized saab = new Saab95();
+        saab.position.setPosY(100);
+        Motorized scania = new Scania();
+        scania.position.setPosY(200);
+        cc.vehicle.add(new Volvo240());
+        cc.vehicle.add(saab);
+        cc.vehicle.add(scania);
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
 
@@ -43,10 +47,11 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for (Motorized car : vehicle) {
                 car.move();
                 int x = (int) Math.round(car.position.getPosX());
                 int y = (int) Math.round(car.position.getPosY());
+                changeDirection(car,x,y);
                 frame.drawPanel.moveit(car,x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -92,36 +97,36 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Motorized car : cars) {
+        for (Motorized car : vehicle) {
             car.gas(gas);
         }
     }
 
     void turnLeft() {
-        for (Movable vehicle : cars) {
+        for (Movable vehicle : vehicle) {
             vehicle.turnLeft();
         }
     }
 
     void turnRight() {
-        for (Movable vehicle : cars) {
+        for (Movable vehicle : vehicle) {
             vehicle.turnRight();
         }
     }
 
     void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for (Motorized car : cars) {
+        for (Motorized car : vehicle) {
             car.brake(brake);
         }
     }
     void turnTurboOn(){
-        for (Motorized<EngineTurbo> car: cars){
+        for (Motorized<EngineTurbo> car: vehicle){
             car.engine.carTurbo.setTurboOn(true);
         }
     }
     void turnTurboOff(){
-        for(Motorized<EngineTurbo> car : cars){
+        for(Motorized<EngineTurbo> car : vehicle){
             car.engine.carTurbo.setTurboOn(false);
         }
     }
