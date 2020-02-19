@@ -66,7 +66,7 @@ public class DrawPanel extends JPanel{
         }
 
     }
-
+//beatch
 
 
     // This method is called each time the panel updates/refreshes/repaints itself
