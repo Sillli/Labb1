@@ -39,7 +39,7 @@ public class DrawPanel<CarPicPoint> extends JPanel{
             scaniaPoint.x = x;
             scaniaPoint.y = y;
         }
-
+//
     }
 
     // Initializes the panel and reads the images
