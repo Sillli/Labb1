@@ -22,6 +22,7 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Motorized> vehicle = new ArrayList<>();
+    ArrayList<Scania> trucks = new ArrayList<>();
 
     //methods:
 
@@ -145,13 +146,16 @@ public class CarController {
         }
     }
 
-    void liftFlatbed(){
-     for(Motorized vehicle : vehicle){
-
-     }
+    void liftTheFlatbed() {
+        for (Scania truck : trucks){
+          truck.tipFlatbed();
+        }
     }
 
-    void lowerFlatbed(){
+    void lowerTheFlatbed() {
+        for(Scania truck : trucks){
+            truck.lowerFlatbed();
+        }
 
     }
 }
