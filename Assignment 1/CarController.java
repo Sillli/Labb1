@@ -144,4 +144,14 @@ public class CarController {
             vehicle.stopEngine();
         }
     }
+
+    void liftFlatbed(){
+     for(Motorized vehicle : vehicle){
+
+     }
+    }
+
+    void lowerFlatbed(){
+
+    }
 }
