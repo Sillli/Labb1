@@ -4,9 +4,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /*
- * This class represents the Controller part in the MVC pattern.
- * It's responsibilities is to listen to the View and responds in a appropriate manner by
- * modifying the model state and the updating the view.
+* This class represents the Controller part in the MVC pattern.
+* It's responsibilities is to listen to the View and responds in a appropriate manner by
+* modifying the model state and the updating the view.
  */
 
 public class CarController {
@@ -43,16 +43,16 @@ public class CarController {
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     * */
+    * view to update its images. Change this method to your needs.
+    * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Motorized car : vehicle) {
                 car.move();
                 int x = (int) Math.round(car.position.getPosX());
                 int y = (int) Math.round(car.position.getPosY());
-                changeDirection(car, x, y);
-                frame.drawPanel.moveit(car, x, y);
+                changeDirection(car,x,y);
+                frame.drawPanel.moveit(car,x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -120,16 +120,20 @@ public class CarController {
             car.brake(brake);
         }
     }
-
     void turnTurboOn() {
-        for (Motorized<EngineTurbo> car : vehicle) {
-            car.engine.carTurbo.setTurboOn(true);
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Saab95) {
+                ((Saab95) vehicle).setTurboOn(true);
+
+            }
         }
     }
 
     void turnTurboOff() {
-        for (Motorized<EngineTurbo> car : vehicle) {
-            car.engine.carTurbo.setTurboOn(false);
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Saab95) {
+                ((Saab95) vehicle).setTurboOn(false);
+            }
         }
     }
 
@@ -144,4 +148,23 @@ public class CarController {
             vehicle.stopEngine();
         }
     }
+
+    void liftTheFlatbed() {
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Scania) {
+                ((Scania) vehicle).tipFlatbed();
+            }
+        }
+
+    }
+
+    void lowerTheFlatbed() {
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Scania) {
+                ((Scania) vehicle).lowerFlatbed();
+            }
+        }
+
+    }
 }
+

@@ -157,14 +157,28 @@ public class CarView extends JFrame{
                 }
             }
         });
+
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (carC.getClass().toString().equals("Saab95")) {
                     carC.turnTurboOn();
-                } else if (carC.getClass().toString().equals("Scania")) {
-                carC.turnTurboOff();
+
+                }
             }
+        });
+
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftTheFlatbed();
+            }
+        });
+
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerTheFlatbed();
             }
         });
 
