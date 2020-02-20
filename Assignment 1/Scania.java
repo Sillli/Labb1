@@ -25,9 +25,9 @@ public class Scania extends Truck<EngineTurbo> {
     public void tipFlatbed() {
         if (getCurrentSpeed() != 0) {
            stopEngine();
-        } /*if (getCurrentSpeed() == 0 && getFlatbedAngle() != 70) {
+        }else if (getCurrentSpeed() == 0 && getFlatbedAngle() != 70) {
             setFlatbedAngle(70);
-        }*/
+        }
     }
 
     /**
@@ -36,9 +36,9 @@ public class Scania extends Truck<EngineTurbo> {
     public void lowerFlatbed() {
         if (getCurrentSpeed() != 0) {
             stopEngine();
-        } /*if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
+        } if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
             setFlatbedAngle(0);
-        }*/
+        }
     }
 
 

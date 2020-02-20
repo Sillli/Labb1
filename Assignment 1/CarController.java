@@ -22,7 +22,7 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Motorized> vehicle = new ArrayList<>();
-    ArrayList<Scania> trucks = new ArrayList<>();
+
 
     //methods:
 
@@ -129,8 +129,10 @@ public class CarController {
     }
 
     void turnTurboOff() {
-        for (Motorized<EngineTurbo> car : vehicle) {
-            car.engine.carTurbo.setTurboOn(false);
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Saab95) {
+                vehicle.;
+            }
         }
     }
 
@@ -147,16 +149,20 @@ public class CarController {
     }
 
     void liftTheFlatbed() {
-        for (Scania truck : trucks){
-          truck.tipFlatbed();
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Scania) {
+                ((Scania) vehicle).tipFlatbed();
+            }
         }
+
     }
 
     void lowerTheFlatbed() {
-        for(Scania truck : trucks){
-            truck.lowerFlatbed();
+        for (Motorized vehicle : vehicle) {
+            if (vehicle instanceof Scania) {
+                ((Scania) vehicle).lowerFlatbed();
+            }
         }
 
     }
 }
-//hah
