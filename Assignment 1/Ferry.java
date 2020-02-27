@@ -11,7 +11,8 @@ public class Ferry extends Motorized<Engine> implements IStoreCars {
     private final int maxCars;
 
     public Ferry(int maxCars, int nrdoors, Color color, double enginepower) {
-        this.position = new Position(0,0,0,1);
+
+        this.position = new Position(0,0);
         this.maxCars = maxCars;
         this.hull = new Chassi(nrdoors, color);
         this.engine = new Engine(enginepower);
@@ -45,10 +46,10 @@ public class Ferry extends Motorized<Engine> implements IStoreCars {
      */
     @Override
     public void move() {
-        if (position.getDirX() != 0) {
-            position.setPosX( (position.getPosX() + position.getDirX() * getCurrentSpeed()));
-        } else if (position.getDirY() != 0) {
-            position.setPosY( (position.getPosY() + position.getDirY() * getCurrentSpeed()));
+        if (getDirX() != 0) {
+            position.setPosX( (position.getPosX() + getDirX() * getCurrentSpeed()));
+        } else if (getDirY() != 0) {
+            position.setPosY( (position.getPosY() + getDirY() * getCurrentSpeed()));
         }
     }
 

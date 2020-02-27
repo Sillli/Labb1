@@ -9,7 +9,7 @@ public class CarTransporter extends Truck<EngineTurbo> implements IStoreCars {
 
     public CarTransporter() {
         this.modelName = "Mercedes";
-        this.position = new Position(0,0,0,1);
+        this.position = new Position(0,0);
         this.flatbed = new Flatbed();
         this.engine = new EngineTurbo(400);
         this.chassi = new Chassi(2,Color.red);

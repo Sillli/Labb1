@@ -8,31 +8,12 @@ public class Position {
 
     protected double PosX;
     protected double PosY;
-    protected int DirX;
-    protected int DirY;
 
-    public Position(double posX, double posY, int dirX, int dirY) {
+
+    public Position(double posX, double posY) {
         PosX = posX;
         PosY = posY;
-        DirX = dirX;
-        DirY = dirY;
-    }
 
-
-    public int getDirX() {
-        return DirX;
-    }
-
-    public void setDirX(int dirX) {
-        DirX = dirX;
-    }
-
-    public int getDirY() {
-        return DirY;
-    }
-
-    public void setDirY(int dirY) {
-        DirY = dirY;
     }
 
     public double getPosX() {

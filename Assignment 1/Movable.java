@@ -13,39 +13,45 @@ public abstract class Movable implements IMovable {
     protected double currentSpeed; // The current speed of the car
     protected String modelName; // The car model name
 
+    protected int DirX;
+    protected int DirY;
+
+
     public Movable() {
+        this.DirX =1;
+        this.DirY=0;
         this.currentSpeed = 0;
     }
 
     @Override
     public void turnRight() {
-        if (position.getDirX() == -1 && position.getDirY() == 0) {
+        if (getDirX() == -1 && getDirY() == 0) {
             setXYDir(0,-1);
-        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
+        } else if (getDirX() == 0 && getDirY() == -1) {
             setXYDir(1,0);
-        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
+        } else if (getDirX() == 1 && getDirY() == 0) {
             setXYDir(0,1);
-        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
+        } else if (getDirX() == 0 && getDirY() == 1) {
             setXYDir(-1,0);
         }
     }
     @Override
     public void turnLeft() {
 
-        if (position.getDirX() == -1 && position.getDirY() == 0) {
+        if (getDirX() == -1 && getDirY() == 0) {
             setXYDir(0,1);
-        } else if (position.getDirX() == 0 && position.getDirY() == -1) {
+        } else if (getDirX() == 0 && getDirY() == -1) {
             setXYDir(-1,0);
-        } else if (position.getDirX() == 1 && position.getDirY() == 0) {
+        } else if (getDirX() == 1 && getDirY() == 0) {
             setXYDir(0,-1);
-        } else if (position.getDirX() == 0 && position.getDirY() == 1) {
+        } else if (getDirX() == 0 && getDirY() == 1) {
             setXYDir(1,0);
 
         }
     }
     public void setXYDir(int x, int y){
-        position.setDirY(y);
-        position.setDirX(x);
+        setDirY(y);
+        setDirX(x);
     }
 
     public abstract void move();
@@ -84,6 +90,24 @@ public abstract class Movable implements IMovable {
     public double getCurrentSpeed() {
         return currentSpeed;
     }
+
+
+    public int getDirX() {
+        return DirX;
+    }
+
+    public void setDirX(int dirX) {
+        DirX = dirX;
+    }
+
+    public int getDirY() {
+        return DirY;
+    }
+
+    public void setDirY(int dirY) {
+        DirY = dirY;
+    }
+
 
 
 }

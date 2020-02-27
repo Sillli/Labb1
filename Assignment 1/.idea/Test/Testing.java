@@ -84,22 +84,22 @@ public class Testing {
 
     @Test
     public void testTurnLeftCarVolvo() {
-        volvo.position.setDirX(0);
-        volvo.position.setDirY(1);
+        volvo.setDirX(0);
+        volvo.setDirY(1);
 
         volvo.turnLeft();
 
-        System.out.println(volvo.position.getDirX());
-        System.out.println(volvo.position.getDirY());
-        assertTrue(volvo.position.getDirX() == -1 && volvo.position.getDirY() == 0);
+        System.out.println(volvo.getDirX());
+        System.out.println(volvo.getDirY());
+        assertTrue(volvo.getDirX() == -1 && volvo.getDirY() == 0);
     }
 
     @Test
     public void testTurnRightCarVolvo() {
-        volvo.position.setDirX(0);
-        volvo.position.setDirY(1);
+        volvo.setDirX(0);
+        volvo.setDirY(1);
         volvo.turnRight();
-        assertTrue(volvo.position.getDirX() == 1 && volvo.position.getDirY() == 0);
+        assertTrue(volvo.getDirX() == 1 && volvo.getDirY() == 0);
     }
 
     @Test
@@ -194,7 +194,7 @@ public class Testing {
         Scania scania = new Scania();
         scania.setFlatbedAngle(70);
         scania.lowerFlatbed();
-        scania.position.setDirY(1);
+        scania.setDirY(1);
         scania.setCurrentSpeed(10);
         scania.position.setPosY(0);
         scania.position.setPosX(0);

@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Scania extends Truck<EngineTurbo> {
 
-
     /**
      * constructor of the class Scania, sets it unique attributes
      */
@@ -11,7 +10,7 @@ public class Scania extends Truck<EngineTurbo> {
         this.modelName = "Scania";
         this.chassi = new Chassi(2, Color.red);
         this.engine = new EngineTurbo(400);
-        this.position = new Position(0, 0, 0, 1);
+        this.position = new Position(0, 0);
         this.flatbed = new Flatbed();
 
     }

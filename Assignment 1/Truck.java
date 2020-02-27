@@ -8,7 +8,7 @@ public abstract class Truck<T extends Engine> extends Motorized<T> {
      * A constructor of a Flatbed object
      */
     public Truck() {
-        super();
+
     }
 
     /**
@@ -21,10 +21,10 @@ public abstract class Truck<T extends Engine> extends Motorized<T> {
             setCurrentSpeed(0);
             System.out.println("Flatbed is up");
         } else if (flatbed.getFlatbedAngle() == 0) {
-            if (position.getDirX() != 0) {
-                position.setPosX((position.getPosX() + position.getDirX() * getCurrentSpeed()));
-            } else if (position.getDirY() != 0) {
-                position.setPosY((position.getPosY() + position.getDirY() * getCurrentSpeed()));
+            if (getDirX() != 0) {
+                position.setPosX((position.getPosX() + getDirX() * getCurrentSpeed()));
+            } else if (getDirY() != 0) {
+                position.setPosY((position.getPosY() + getDirY() * getCurrentSpeed()));
             }
         }
     }

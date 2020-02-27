@@ -7,8 +7,9 @@ import java.awt.*;
  */
 
 public abstract class Car<T extends Engine> extends Motorized<T> {
-
+    //Position position;
     public Car() {
+
 
     }
 
@@ -17,10 +18,10 @@ public abstract class Car<T extends Engine> extends Motorized<T> {
      */
     @Override
     public void move() {
-        if (position.getDirX() != 0) {
-            position.setPosX((position.getPosX() + position.getDirX() * getCurrentSpeed()));
-        } else if (position.getDirY() != 0) {
-            position.setPosY((position.getPosY() + position.getDirY() * getCurrentSpeed()));
+        if (getDirX() != 0) {
+            position.setPosX((position.getPosX() + getDirX() * getCurrentSpeed()));
+        } else if (getDirY() != 0) {
+            position.setPosY((position.getPosY() + getDirY() * getCurrentSpeed()));
         }
     }
 }
