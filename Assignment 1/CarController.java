@@ -28,15 +28,12 @@ public class CarController {
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();
-        Motorized saab = new Saab95();
-        System.out.println("saab " + saab);
-        System.out.println("position " + saab.position);
-        System.out.println("posy " + saab.position.getPosY());
-
+        Motorized volvo = MotorizedFactory.createVolvo240();
+        Motorized saab = MotorizedFactory.createSaab95();
         saab.position.setPosY(100);
-        Motorized scania = new Scania();
+        Motorized scania = MotorizedFactory.createScania();
         scania.position.setPosY(200);
-        cc.vehicle.add(new Volvo240());
+        cc.vehicle.add(volvo);
         cc.vehicle.add(saab);
         cc.vehicle.add(scania);
         // Start a new view and send a reference of self
@@ -55,7 +52,6 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.position.getPosX());
                 int y = (int) Math.round(car.position.getPosY());
-                System.out.println(car.modelName+ " "+ car.position.getPosX() +" "+car.position.getPosY());
                 changeDirection(car,x,y);
                 frame.drawPanel.moveit(car,x, y);
                 // repaint() calls the paintComponent method of the panel
@@ -73,12 +69,12 @@ public class CarController {
 
 
     }
+
     private void changeYDirection(Motorized vehicle, int y) {
         if (y > frame.drawPanel.getHeight() - 80) {
             vehicle.stopEngine();
             vehicle.setDirY(-1);
             vehicle.startEngine();
-
         } else if (y < 0) {
             vehicle.stopEngine();
             vehicle.setDirY(1);
@@ -91,7 +87,6 @@ public class CarController {
             vehicle.stopEngine();
             vehicle.setDirX(-1);
             vehicle.startEngine();
-
         } else if (x < 0) {
             vehicle.stopEngine();
             vehicle.setDirX(1);
