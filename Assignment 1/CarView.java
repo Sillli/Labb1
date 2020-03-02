@@ -41,10 +41,12 @@ public class CarView extends JFrame implements ICarObserver{
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
+    JButton addCarButton = new JButton("add car");
+
     // Constructor
-    public CarView(String framename, CarController cc) {
-        this.carC = cc;
+    public CarView(String framename) {
         initComponents(framename);
+
     }
 
     // Sets everything in place and fits everything
@@ -87,6 +89,7 @@ public class CarView extends JFrame implements ICarObserver{
         controlPanel.add(lowerBedButton, 5);
         controlPanel.add(turnLeftButton, 6);
         controlPanel.add(turnRightButton, 7);
+        controlPanel.add(addCarButton, 8);
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -179,6 +182,13 @@ public class CarView extends JFrame implements ICarObserver{
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.lowerTheFlatbed();
+            }
+        });
+
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.addCar();
             }
         });
 

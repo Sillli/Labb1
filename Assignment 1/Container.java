@@ -1,20 +1,25 @@
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Container {
 
     ArrayList<Motorized> vehicle = new ArrayList<>();
 
-    ArrayList<MotorizedFactory> addCar = new ArrayList<>();
 
     protected int maxWidth;
     protected int maxHeight;
+
     private TimerListener timerListener;
 
-    public Container(int maxHeight, int maxWidth){
-        this.maxHeight=maxHeight;
-        this.maxWidth=maxWidth;
-        timerListener = new TimerListener(maxWidth,maxHeight, vehicle);
+    CarView frame;
+
+    public Container(int maxHeight, int maxWidth, CarView frame) {
+        this.maxHeight = maxHeight;
+        this.maxWidth = maxWidth;
+        timerListener = new TimerListener(maxWidth, maxHeight, vehicle);
+        this.frame=frame;
     }
 
     public ActionListener getTimerListener() {
@@ -48,6 +53,7 @@ public class Container {
             car.brake(brake);
         }
     }
+
     void turnTurboOn() {
         for (Motorized vehicle : vehicle) {
             if (vehicle instanceof Saab95) {
@@ -95,10 +101,36 @@ public class Container {
 
     }
 
-    void addCarObserver(ICarObserver observer){
+    void addCarObserver(ICarObserver observer) {
         timerListener.addObserver(observer);
     }
 
+    void addCars() {
 
+        Random rand = new Random();
 
+        if (vehicle.size() < 10) {
+            switch (rand.nextInt(3) + 1) {
+                case 1:
+                    Motorized m = MotorizedFactory.createScania();
+                    Point p = new Point((int) m.position.getPosY(), (int) m.position.getPosX());
+                    frame.drawPanel.addVehicles(frame.drawPanel.scaniaImage, p);
+                    break;
+
+                case 2:
+                    Motorized s = MotorizedFactory.createSaab95();
+                    Point sp = new Point((int) s.position.getPosY(), (int) s.position.getPosX());
+                    frame.drawPanel.addVehicles(frame.drawPanel.saabImage, sp);
+                    break;
+                case 3:
+                    Motorized v = MotorizedFactory.createVolvo240();
+                    Point vp = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
+                    frame.drawPanel.addVehicles(frame.drawPanel.volvoImage, vp);
+                    break;
+
+            }
+
+        }
+
+    }
 }

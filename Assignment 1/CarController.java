@@ -20,9 +20,11 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     Container container;
+
     // A list of cars, modify if needed
 
     public CarController(){
+
     }
 
     public void initModel(Container container){
@@ -83,6 +85,11 @@ public class CarController {
         container.lowerTheFlatbed();
 
 
+
+    }
+
+    void addCar(){
+        container.addCars();
     }
 }
 

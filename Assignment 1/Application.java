@@ -2,9 +2,9 @@ public class Application {
     public static void main(String[] args) {
         // Instance of this class
 
+        CarView carView = new CarView("CarSim 1.0");
         CarController cc = new CarController();
-        CarView carView = new CarView("CarSim 1.0", cc);
-        Container container= new Container(carView.getHeight(), carView.getWidth());
+        Container container= new Container(carView.getHeight(), carView.getWidth(),carView);
         cc.initModel(container);
 
         container.addCarObserver(carView);
