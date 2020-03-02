@@ -11,42 +11,34 @@ import java.util.ArrayList;
 
 public class CarController {
     // member fields:
-
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+     //protected Timer timer = new Timer(delay, new TimerListener());
+    protected Timer timer;
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    Container container;
     // A list of cars, modify if needed
-    ArrayList<Motorized> vehicle = new ArrayList<>();
+    //ArrayList<Motorized> vehicle = new ArrayList<>();
 
+    public CarController(){
+        //Container container //param
+       // this.timer  = new Timer(delay, container.getTimerListener());
+    }
+
+    public void initModel(Container container){
+        this.container = container;
+        this.timer  = new Timer(delay, container.getTimerListener());
+    }
     //methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-        Motorized volvo = MotorizedFactory.createVolvo240();
-        Motorized saab = MotorizedFactory.createSaab95();
-        saab.position.setPosY(100);
-        Motorized scania = MotorizedFactory.createScania();
-        scania.position.setPosY(200);
-        cc.vehicle.add(volvo);
-        cc.vehicle.add(saab);
-        cc.vehicle.add(scania);
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
-    }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
-    private class TimerListener implements ActionListener {
+   /* private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Motorized car : vehicle) {
                 car.move();
@@ -61,110 +53,58 @@ public class CarController {
 
         }
     }
-
-
-    private void changeDirection(Motorized vehicle, int x, int y) {
-        changeYDirection(vehicle, y);
-        changeXDirection(vehicle, x);
-
-
-    }
-
-    private void changeYDirection(Motorized vehicle, int y) {
-        if (y > frame.drawPanel.getHeight() - 80) {
-            vehicle.stopEngine();
-            vehicle.setDirY(-1);
-            vehicle.startEngine();
-        } else if (y < 0) {
-            vehicle.stopEngine();
-            vehicle.setDirY(1);
-            vehicle.startEngine();
-        }
-    }
-
-    private void changeXDirection(Motorized vehicle, int x) {
-        if (x > frame.drawPanel.getWidth() - 100) {
-            vehicle.stopEngine();
-            vehicle.setDirX(-1);
-            vehicle.startEngine();
-        } else if (x < 0) {
-            vehicle.stopEngine();
-            vehicle.setDirX(1);
-            vehicle.startEngine();
-        }
-    }
+*/
 
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Motorized car : vehicle) {
-            car.gas(gas);
-        }
+        container.gas(amount);
+
     }
 
     void turnLeft() {
-        for (Movable vehicle : vehicle) {
-            vehicle.turnLeft();
-        }
+        container.turnLeft();
+
     }
 
     void turnRight() {
-        for (Movable vehicle : vehicle) {
-            vehicle.turnRight();
-        }
+        container.turnRight();
+
     }
 
     void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Motorized car : vehicle) {
-            car.brake(brake);
-        }
+        container.brake(amount);
+
     }
     void turnTurboOn() {
-        for (Motorized vehicle : vehicle) {
-            if (vehicle instanceof Saab95) {
-                ((Saab95) vehicle).setTurboOn(true);
+        container.turnTurboOn();
 
-            }
-        }
     }
 
     void turnTurboOff() {
-        for (Motorized vehicle : vehicle) {
-            if (vehicle instanceof Saab95) {
-                ((Saab95) vehicle).setTurboOn(false);
-            }
-        }
+        container.turnTurboOff();
+
     }
 
     void turnEngineOn() {
-        for (Motorized vehicle : vehicle) {
-            vehicle.startEngine();
-        }
+        container.turnEngineOn();
+
     }
 
     void turnEngineOff() {
-        for (Motorized vehicle : vehicle) {
-            vehicle.stopEngine();
-        }
+        container.turnEngineOff();
+
     }
 
     void liftTheFlatbed() {
-        for (Motorized vehicle : vehicle) {
-            if (vehicle instanceof Scania) {
-                ((Scania) vehicle).tipFlatbed();
-            }
-        }
+        container.liftTheFlatbed();
+
 
     }
 
     void lowerTheFlatbed() {
-        for (Motorized vehicle : vehicle) {
-            if (vehicle instanceof Scania) {
-                ((Scania) vehicle).lowerFlatbed();
-            }
-        }
+        container.lowerTheFlatbed();
+
 
     }
 }
