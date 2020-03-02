@@ -104,7 +104,7 @@ public class Testing {
 
     @Test
     public void testIncrementSpeedSaab() {
-        saab.engine.carTurbo.setTurboOn(true);
+        saab.engine.carTurbo.setTurboOn();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -114,7 +114,7 @@ public class Testing {
 
     @Test
     public void testSetTurboOff() {
-        saab.engine.carTurbo.setTurboOn(false);
+        saab.setTurboOff();
         saab.setCurrentSpeed(10);
         saab.incrementSpeed(10);
         System.out.println(saab.getCurrentSpeed());
@@ -170,7 +170,7 @@ public class Testing {
     @Test
     public void testLowerFlatbedScania() {
         Scania scania = new Scania();
-        scania.setFlatbedAngle(70);
+        scania.tipFlatbed();
         System.out.println(scania.getFlatbedAngle());
         scania.lowerFlatbed();
         assertTrue(scania.getFlatbedAngle() == 0);
@@ -180,7 +180,7 @@ public class Testing {
     @Test
     public void testMoveScaniaFlatbedUp() {
         Scania scania = new Scania();
-        scania.setFlatbedAngle(0);
+        scania.lowerFlatbed();
         scania.tipFlatbed();
         scania.setCurrentSpeed(10);
         scania.position.setPosX(0);
@@ -192,16 +192,18 @@ public class Testing {
     @Test
     public void testMoveScaniaFlatbedDown() {
         Scania scania = new Scania();
-        scania.setFlatbedAngle(70);
+        scania.startEngine();
+        scania.tipFlatbed();
         scania.lowerFlatbed();
         scania.setDirY(1);
+        scania.setDirX(0);
         scania.setCurrentSpeed(10);
         scania.position.setPosY(0);
         scania.position.setPosX(0);
         scania.move();
         System.out.println(scania.position.getPosX());
         System.out.println(scania.position.getPosY());
-        assertTrue(scania.position.getPosY() != 0);
+        assertTrue(scania.position.getPosY() >0);
     }
 
 
@@ -215,7 +217,7 @@ public class Testing {
     @Test
     public void testSpeedFactorCarTransporter() {
         CarTransporter carTransporter = new CarTransporter();
-        carTransporter.engine.carTurbo.setTurboOn(false);
+        carTransporter.engine.carTurbo.setTurboOff();
 
         assertTrue(carTransporter.engine.speedFactor() == 4);
     }
@@ -389,7 +391,7 @@ public class Testing {
     @Test
     public void testSpeedFactorSaabMotorized(){
         System.out.println(saab.speedFactor());
-        saab.engine.carTurbo.setTurboOn(true);
+        saab.engine.carTurbo.setTurboOn();
         System.out.println(saab.speedFactor());
         assertTrue(saab.speedFactor()==1.625 && saab.engine.speedFactor()==1.625);
     }

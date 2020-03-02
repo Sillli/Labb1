@@ -5,21 +5,27 @@ public class CarTurbo {
     /**
      * A class that can be used by any class that needs a turbo.
      */
-    protected boolean TurboOn;
 
-    public CarTurbo(boolean turboOn) {
-        TurboOn = turboOn;
+
+    protected TurboState CurrentState;
+    protected TurboState TurboOn = new TurboOn();
+    protected TurboState TurboOff = new TurboOff();
+
+    public CarTurbo() {
+        CurrentState = TurboOff;
     }
 
-    public boolean isTurboOn() {
-        return TurboOn;
+    protected void setState(TurboState state) {
+        this.CurrentState = state;
     }
-
-    public void setTurboOn(boolean turboOn) {
-        TurboOn = turboOn;
+    public void setTurboOn(){
+        setState(TurboOn);
     }
-
-
-
+    public void setTurboOff(){
+        setState(TurboOff);
+    }
+    public TurboState getState(){
+        return CurrentState;
+    }
 
 }

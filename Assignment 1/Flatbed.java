@@ -20,4 +20,6 @@ public class Flatbed {
     public double getFlatbedAngle() {
         return flatbedAngle;
     }
+
 }
+

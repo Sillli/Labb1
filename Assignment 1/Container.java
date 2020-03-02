@@ -51,7 +51,7 @@ public class Container {
     void turnTurboOn() {
         for (Motorized vehicle : vehicle) {
             if (vehicle instanceof Saab95) {
-                ((Saab95) vehicle).setTurboOn(true);
+                ((Saab95) vehicle).setTurboOn();
 
             }
         }
@@ -60,7 +60,7 @@ public class Container {
     void turnTurboOff() {
         for (Motorized vehicle : vehicle) {
             if (vehicle instanceof Saab95) {
-                ((Saab95) vehicle).setTurboOn(false);
+                ((Saab95) vehicle).setTurboOff();
             }
         }
     }

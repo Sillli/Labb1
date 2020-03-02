@@ -16,8 +16,9 @@ public class Saab95 extends Car<EngineTurbo> {
         stopEngine();
     }
 
-    public void setTurboOn(boolean state){
-        engine.carTurbo.setTurboOn(state);
+    public void setTurboOn(){
+        engine.carTurbo.setTurboOn();
     }
+    public void setTurboOff(){engine.carTurbo.setTurboOff();}
 
 }

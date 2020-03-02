@@ -6,12 +6,19 @@ public class Scania extends Truck<EngineTurbo> {
     /**
      * constructor of the class Scania, sets it unique attributes
      */
+
+    private FlatbedState FlatbedDown = new FlatbedDown();
+    private FlatbedState FlatbedUp = new FlatbedUp();
+    private FlatbedState currentState;
+
     public Scania() {
+        currentState = FlatbedDown;
         this.modelName = "Scania";
         this.chassi = new Chassi(2, Color.red);
         this.engine = new EngineTurbo(400);
         this.position = new Position(0, 0);
         this.flatbed = new Flatbed();
+
 
     }
 
@@ -22,23 +29,23 @@ public class Scania extends Truck<EngineTurbo> {
      */
 
     public void tipFlatbed() {
-        if (getCurrentSpeed() != 0) {
-           stopEngine();
-        }else if (getCurrentSpeed() == 0 && getFlatbedAngle() != 70) {
-            setFlatbedAngle(70);
-        }
-    }
+        if(getCurrentSpeed()==0){
+       setFlatbedState(FlatbedUp);
+       stopEngine();
+       setFlatbedAngle(70);
+        }}
+
 
     /**
      * Method that decides if the flatbed can be lowered.
      */
     public void lowerFlatbed() {
-        if (getCurrentSpeed() != 0) {
-            stopEngine();
-        } if (getCurrentSpeed() == 0 && getFlatbedAngle() >= 0) {
-            setFlatbedAngle(0);
-        }
-    }
+        if(getCurrentSpeed()==0){
+        setFlatbedState(FlatbedDown);
+        stopEngine();
+        setFlatbedAngle(0);
+        }}
+
 
 
     /**
@@ -55,10 +62,14 @@ public class Scania extends Truck<EngineTurbo> {
      *
      * @param flatbedAngle the angle the flatbed is gonna get
      */
-    public void setFlatbedAngle(double flatbedAngle) {
+    private void setFlatbedAngle(double flatbedAngle) {
         if (flatbedAngle >= 0 && flatbedAngle <= 70) {
             this.flatbed.setFlatbedAngle(flatbedAngle);
         }
+
+    }
+    public void setFlatbedState(FlatbedState State){
+        currentState=State;
 
     }
 

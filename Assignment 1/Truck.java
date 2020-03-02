@@ -19,7 +19,6 @@ public abstract class Truck<T extends Engine> extends Motorized<T> {
     public void move() {
         if (flatbed.getFlatbedAngle() != 0) {
             setCurrentSpeed(0);
-            System.out.println("Flatbed is up");
         } else if (flatbed.getFlatbedAngle() == 0) {
             if (getDirX() != 0) {
                 position.setPosX((position.getPosX() + getDirX() * getCurrentSpeed()));
