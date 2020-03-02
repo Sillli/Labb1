@@ -21,11 +21,8 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     Container container;
     // A list of cars, modify if needed
-    //ArrayList<Motorized> vehicle = new ArrayList<>();
 
     public CarController(){
-        //Container container //param
-       // this.timer  = new Timer(delay, container.getTimerListener());
     }
 
     public void initModel(Container container){
@@ -34,26 +31,6 @@ public class CarController {
     }
     //methods:
 
-
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
-   /* private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Motorized car : vehicle) {
-                car.move();
-                int x = (int) Math.round(car.position.getPosX());
-                int y = (int) Math.round(car.position.getPosY());
-                changeDirection(car,x,y);
-                frame.drawPanel.moveit(car,x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
-
-
-        }
-    }
-*/
 
 
     // Calls the gas method for each car once
