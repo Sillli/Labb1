@@ -1,5 +1,5 @@
 public interface ICarObserver {
 
-    void update (Motorized car, int x, int y);
+    void update (Motorized car);
 
 }

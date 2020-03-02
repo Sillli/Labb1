@@ -24,7 +24,7 @@ public class TimerListener implements ActionListener {
                 int x = (int) Math.round(car.position.getPosX());
                 int y = (int) Math.round(car.position.getPosY());
                 changeDirection.changeDirection(car,x,y);
-                notifyObs(car,x,y);
+                notifyObs(car);
                 //frame.drawPanel.moveit(car,x, y);
                 // repaint() calls the paintComponent method of the panel
                 //frame.drawPanel.repaint();
@@ -40,9 +40,9 @@ public class TimerListener implements ActionListener {
         observers.remove(observer);
     }
 
-    public void notifyObs(Motorized car, int x, int y) {
+    public void notifyObs(Motorized car) {
         for(ICarObserver observer : observers){
-            observer.update(car, x, y);
+            observer.update(car);
         }
     }
 }

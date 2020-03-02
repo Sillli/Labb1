@@ -197,8 +197,8 @@ public class CarView extends JFrame implements ICarObserver{
 
 
     @Override
-    public void update(Motorized car, int x, int y) {
-        drawPanel.moveit(car,x, y);
+    public void update(Motorized car) {
+        drawPanel.moveit(car);
         // Repaint () calls the paintComponent method of the panel
         drawPanel.repaint();
     }
