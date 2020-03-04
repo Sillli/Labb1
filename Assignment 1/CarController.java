@@ -89,5 +89,9 @@ public class CarController {
     void addCar(){
         container.addCars();
     }
+
+    void removeCar(){
+        container.removeCars();
+    }
 }
 

@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -132,6 +133,38 @@ public class Container {
 
             }
 
+        }
+
+    }
+
+    void removeCars() {
+        // Random rand = new Random();
+
+            for (Motorized v : vehicle) {
+                for (BufferedImage image : frame.drawPanel.images) {
+                        // Motorized m = MotorizedFactory.createScania();
+                        Point p = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
+
+                        frame.drawPanel.removeVehicles(image, point);
+                        vehicle.remove(v);
+
+
+                                       /* case 2:
+                        //Motorized s = MotorizedFactory.createSaab95();
+                        Point sp = new Point((int) s.position.getPosY(), (int) s.position.getPosX());
+                        vehicle.remove(s);
+                        frame.drawPanel.addVehicles(frame.drawPanel.saabImage, sp);
+                        break;
+                    case 3:
+                        Motorized v = MotorizedFactory.createVolvo240();
+                        Point vp = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
+                        vehicle.add(v);
+                        frame.drawPanel.addVehicles(frame.drawPanel.volvoImage, vp);
+                        break;
+*/
+
+
+            }
         }
 
     }

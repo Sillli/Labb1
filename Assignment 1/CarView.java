@@ -42,7 +42,7 @@ public class CarView extends JFrame implements ICarObserver {
     JButton stopButton = new JButton("Stop all cars");
 
     JButton addCarButton = new JButton("Add car");
-    JButton removeCarutton = new JButton("Remove car");
+    JButton removeCarButton = new JButton("Remove car");
 
     // Constructor
     public CarView(String framename, CarController carC) {
@@ -90,6 +90,7 @@ public class CarView extends JFrame implements ICarObserver {
         controlPanel.add(turnLeftButton, 6);
         controlPanel.add(turnRightButton, 7);
         controlPanel.add(addCarButton, 8);
+        controlPanel.add(removeCarButton, 9);
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -192,10 +193,10 @@ public class CarView extends JFrame implements ICarObserver {
             }
         });
 
-        removeCarutton.addActionListener(new ActionListener() {
+        removeCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                carC.removeCar();
             }
         });
 

@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class DrawPanel extends JPanel {
 
 
-    private ArrayList<BufferedImage> images = new ArrayList<>();
-    private ArrayList<Point> points = new ArrayList<>();
+    protected ArrayList<BufferedImage> images = new ArrayList<>();
+    protected ArrayList<Point> points = new ArrayList<>();
 
 
     //Just a single image, TODO: Generalize
@@ -49,9 +49,14 @@ public class DrawPanel extends JPanel {
 
     }
 
-    void addVehicles(BufferedImage image,Point point){
+    void addVehicles(BufferedImage image, Point point){
         images.add(image);
         points.add(point);
+    }
+
+    void removeVehicles(BufferedImage image, Point point){
+        images.remove(image);
+        points.remove(point);
     }
 
 
