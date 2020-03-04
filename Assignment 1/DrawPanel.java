@@ -20,9 +20,8 @@ public class DrawPanel extends JPanel {
     BufferedImage volvoImage;
 
 
-
     void moveit(int index, int x, int y) {
-        points.set(index, new Point(x,y));
+        points.set(index, new Point(x, y));
     }
 
 
@@ -42,21 +41,20 @@ public class DrawPanel extends JPanel {
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
             scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
 
-    void addVehicles(BufferedImage image, Point point){
+    void addVehicles(BufferedImage image, Point point) {
         images.add(image);
         points.add(point);
     }
 
-    void removeVehicles(BufferedImage image, Point point){
-        images.remove(image);
-        points.remove(point);
+    void removeVehicles(int index) {
+        images.remove(index);
+        points.remove(index);
     }
 
 
@@ -66,9 +64,9 @@ public class DrawPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for(int i = 0; i < images.size(); i++){
+        for (int i = 0; i < images.size(); i++) {
             Point p = points.get(i);
-            g.drawImage(images.get(i),p.x, p.y, null);
+            g.drawImage(images.get(i), p.x, p.y, null);
 
         }
 
