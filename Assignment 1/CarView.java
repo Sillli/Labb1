@@ -13,14 +13,14 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class CarView extends JFrame implements ICarObserver{
+public class CarView extends JFrame implements ICarObserver {
     private static final int X = 800;
     private static final int Y = 800;
 
     // The controller member
     CarController carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    DrawPanel drawPanel = new DrawPanel(X, Y - 240);
 
     JPanel controlPanel = new JPanel();
 
@@ -41,7 +41,8 @@ public class CarView extends JFrame implements ICarObserver{
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
 
-    JButton addCarButton = new JButton("add car");
+    JButton addCarButton = new JButton("Add car");
+    JButton removeCarutton = new JButton("Remove car");
 
     // Constructor
     public CarView(String framename, CarController carC) {
@@ -54,11 +55,10 @@ public class CarView extends JFrame implements ICarObserver{
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X,Y));
+        this.setPreferredSize(new Dimension(X, Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
-
 
 
         SpinnerModel spinnerModel =
@@ -69,7 +69,7 @@ public class CarView extends JFrame implements ICarObserver{
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
             }
         });
 
@@ -189,6 +189,13 @@ public class CarView extends JFrame implements ICarObserver{
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.addCar();
+            }
+        });
+
+        removeCarutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
 

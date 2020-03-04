@@ -19,7 +19,7 @@ public class Container {
         this.maxHeight = maxHeight;
         this.maxWidth = maxWidth;
         timerListener = new TimerListener(maxWidth, maxHeight, vehicle);
-        this.frame=frame;
+        this.frame = frame;
     }
 
     public ActionListener getTimerListener() {
@@ -109,8 +109,8 @@ public class Container {
 
         Random rand = new Random();
 
-        if (vehicle.size() < 10) {
-            switch (rand.nextInt(3) + 1) {
+        if (vehicle.size() < 100) {
+            switch (rand.nextInt(4) + 1) {
                 case 1:
                     Motorized m = MotorizedFactory.createScania();
                     Point p = new Point((int) m.position.getPosY(), (int) m.position.getPosX());
@@ -126,6 +126,7 @@ public class Container {
                 case 3:
                     Motorized v = MotorizedFactory.createVolvo240();
                     Point vp = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
+                    vehicle.add(v);
                     frame.drawPanel.addVehicles(frame.drawPanel.volvoImage, vp);
                     break;
 

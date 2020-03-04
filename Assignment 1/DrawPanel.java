@@ -19,31 +19,7 @@ public class DrawPanel extends JPanel {
     BufferedImage scaniaImage;
     BufferedImage volvoImage;
 
-    //Container container;
 
-    // To keep track of a singel cars position;
-
-
-
-
-   // Point volvoPoint = new Point();
-    //Point saabPoint = new Point();
-//    Point scaniaPoint = new Point();
-
-/*
-    // TODO: Make this general for all cars
-    void moveit(Motorized vehicle) {
-            if (vehicle.modelName.equals("Volvo240")) {
-                volvoPoint.x = (int) vehicle.position.getPosX();
-                volvoPoint.y = (int) vehicle.position.getPosY();
-            } else if (vehicle.modelName.equals("Saab95")) {
-                saabPoint.x = (int) vehicle.position.getPosX();
-                saabPoint.y = (int) vehicle.position.getPosY();
-            } else if (vehicle.modelName.equals("Scania")) {
-                scaniaPoint.x = (int) vehicle.position.getPosX();
-                scaniaPoint.y = (int) vehicle.position.getPosY();
-            }
-    }*/
 
     void moveit(int index, int x, int y) {
         points.set(index, new Point(x,y));
@@ -86,21 +62,11 @@ public class DrawPanel extends JPanel {
         super.paintComponent(g);
 
         for(int i = 0; i < images.size(); i++){
-            BufferedImage image = images.get(i);
-            //Motorized m = container.vehicle.get(i);
-            //Point p = new Point((int)m.position.PosX,(int)m.position.PosY);
-            //g.drawImage(image,p.x, p.y, null);
-
             Point p = points.get(i);
             g.drawImage(images.get(i),p.x, p.y, null);
 
         }
 
-        /*
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage,saabPoint.x,saabPoint.y,null);
-        g.drawImage(scaniaImage,scaniaPoint.x,scaniaPoint.y,null);
 
-         */
     }
 }

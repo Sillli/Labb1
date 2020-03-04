@@ -18,12 +18,10 @@ public class CarController {
      //protected Timer timer = new Timer(delay, new TimerListener());
     protected Timer timer;
 
-    // The frame that represents this instance View of the MVC pattern
     Container container;
 
-    // A list of cars, modify if needed
-
     public CarController(){
+
 
     }
 
