@@ -44,9 +44,9 @@ public class CarView extends JFrame implements ICarObserver{
     JButton addCarButton = new JButton("add car");
 
     // Constructor
-    public CarView(String framename) {
+    public CarView(String framename, CarController carC) {
         initComponents(framename);
-
+        this.carC = carC;
     }
 
     // Sets everything in place and fits everything
@@ -207,9 +207,16 @@ public class CarView extends JFrame implements ICarObserver{
 
 
     @Override
+    public void update(int index, int x, int y) {
+        drawPanel.moveit(index, x, y);
+        // Repaint () calls the paintComponent method of the panel
+        drawPanel.repaint();
+    }
+/*
+    @Override
     public void update(Motorized car) {
         drawPanel.moveit(car);
         // Repaint () calls the paintComponent method of the panel
         drawPanel.repaint();
-    }
+    }*/
 }

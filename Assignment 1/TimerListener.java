@@ -42,7 +42,7 @@ public class TimerListener implements ActionListener {
 
     public void notifyObs(Motorized car) {
         for(ICarObserver observer : observers){
-            observer.update(car);
+            observer.update(vehicle.indexOf(car),(int)car.position.getPosX(),(int)car.position.getPosY());
         }
     }
 }

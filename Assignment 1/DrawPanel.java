@@ -11,23 +11,26 @@ public class DrawPanel extends JPanel {
 
 
     private ArrayList<BufferedImage> images = new ArrayList<>();
+    private ArrayList<Point> points = new ArrayList<>();
+
+
     //Just a single image, TODO: Generalize
     BufferedImage saabImage;
     BufferedImage scaniaImage;
     BufferedImage volvoImage;
 
-    Container container;
+    //Container container;
 
     // To keep track of a singel cars position;
 
 
 
 
-    Point volvoPoint = new Point();
-    Point saabPoint = new Point();
-    Point scaniaPoint = new Point();
+   // Point volvoPoint = new Point();
+    //Point saabPoint = new Point();
+//    Point scaniaPoint = new Point();
 
-
+/*
     // TODO: Make this general for all cars
     void moveit(Motorized vehicle) {
             if (vehicle.modelName.equals("Volvo240")) {
@@ -40,8 +43,12 @@ public class DrawPanel extends JPanel {
                 scaniaPoint.x = (int) vehicle.position.getPosX();
                 scaniaPoint.y = (int) vehicle.position.getPosY();
             }
-//
+    }*/
+
+    void moveit(int index, int x, int y) {
+        points.set(index, new Point(x,y));
     }
+
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
@@ -68,7 +75,7 @@ public class DrawPanel extends JPanel {
 
     void addVehicles(BufferedImage image,Point point){
         images.add(image);
-
+        points.add(point);
     }
 
 
@@ -80,9 +87,13 @@ public class DrawPanel extends JPanel {
 
         for(int i = 0; i < images.size(); i++){
             BufferedImage image = images.get(i);
-            Motorized m = container.vehicle.get(i);
-            Point p = new Point((int)m.position.PosX,(int)m.position.PosY);
-            g.drawImage(image,p.x, p.y, null);
+            //Motorized m = container.vehicle.get(i);
+            //Point p = new Point((int)m.position.PosX,(int)m.position.PosY);
+            //g.drawImage(image,p.x, p.y, null);
+
+            Point p = points.get(i);
+            g.drawImage(images.get(i),p.x, p.y, null);
+
         }
 
         /*

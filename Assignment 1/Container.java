@@ -114,12 +114,13 @@ public class Container {
                 case 1:
                     Motorized m = MotorizedFactory.createScania();
                     Point p = new Point((int) m.position.getPosY(), (int) m.position.getPosX());
+                    vehicle.add(m);
                     frame.drawPanel.addVehicles(frame.drawPanel.scaniaImage, p);
                     break;
-
                 case 2:
                     Motorized s = MotorizedFactory.createSaab95();
                     Point sp = new Point((int) s.position.getPosY(), (int) s.position.getPosX());
+                    vehicle.add(s);
                     frame.drawPanel.addVehicles(frame.drawPanel.saabImage, sp);
                     break;
                 case 3:
