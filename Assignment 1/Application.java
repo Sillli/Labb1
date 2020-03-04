@@ -9,7 +9,7 @@ public class Application {
         cc.initModel(container);
 
         container.addCarObserver(carView);
-
+// hej
 
         /*Motorized volvo = MotorizedFactory.createVolvo240();
 

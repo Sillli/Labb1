@@ -4,16 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class TimerListener implements ActionListener {
 
     ArrayList<Motorized> vehicle;
+    //ArrayList<Motorized> vehicle;
+
     ChangeDir changeDirection;
 
     ArrayList<ICarObserver> observers = new ArrayList<>();
 
 
-    public TimerListener(int height, int width,ArrayList<Motorized> vehicle){
+    public TimerListener(int height, int width, ArrayList<Motorized> vehicle){
         this.changeDirection=new ChangeDir(height,width);
         this.vehicle = vehicle;
     }
