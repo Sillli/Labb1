@@ -14,13 +14,11 @@ public class Container {
 
     private TimerListener timerListener;
 
-    CarView frame;
 
     public Container(int maxHeight, int maxWidth, CarView frame) {
         this.maxHeight = maxHeight;
         this.maxWidth = maxWidth;
         timerListener = new TimerListener(maxWidth, maxHeight, vehicle);
-        this.frame = frame;
     }
 
     public ActionListener getTimerListener() {
@@ -114,21 +112,26 @@ public class Container {
             switch (rand.nextInt(4) + 1) {
                 case 1:
                     Motorized m = MotorizedFactory.createScania();
-                    Point p = new Point((int) m.position.getPosY(), (int) m.position.getPosX());
+                //    Point p = new Point((int) m.position.getPosY(), (int) m.position.getPosX());
                     vehicle.add(m);
-                    frame.drawPanel.addVehicles(frame.drawPanel.scaniaImage, p);
+                    timerListener.notifyObsNewCar(m.modelName);
+                    //frame.drawPanel.addVehicles(frame.drawPanel.scaniaImage, p);
                     break;
                 case 2:
                     Motorized s = MotorizedFactory.createSaab95();
-                    Point sp = new Point((int) s.position.getPosY(), (int) s.position.getPosX());
+                 //   Point sp = new Point((int) s.position.getPosY(), (int) s.position.getPosX());
                     vehicle.add(s);
-                    frame.drawPanel.addVehicles(frame.drawPanel.saabImage, sp);
+                    timerListener.notifyObsNewCar(s.modelName);
+
+                    //frame.drawPanel.addVehicles(frame.drawPanel.saabImage, sp);
                     break;
                 case 3:
                     Motorized v = MotorizedFactory.createVolvo240();
-                    Point vp = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
+                   // Point vp = new Point((int) v.position.getPosY(), (int) v.position.getPosX());
                     vehicle.add(v);
-                    frame.drawPanel.addVehicles(frame.drawPanel.volvoImage, vp);
+                    timerListener.notifyObsNewCar(v.modelName);
+
+                    //frame.drawPanel.addVehicles(frame.drawPanel.volvoImage, vp);
                     break;
 
             }
@@ -139,9 +142,11 @@ public class Container {
 
     void removeCars() {
         int index = vehicle.size() - 1;
-        frame.drawPanel.repaint();
+        //frame.drawPanel.repaint();
         if (index >= 0) {
-            frame.drawPanel.removeVehicles(index);
+          //  frame.drawPanel.removeVehicles(index);
+            timerListener.notifyObsRemoveCar(index);
+
             vehicle.remove(index);
         }
 

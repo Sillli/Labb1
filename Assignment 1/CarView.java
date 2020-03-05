@@ -220,6 +220,20 @@ public class CarView extends JFrame implements ICarObserver {
         // Repaint () calls the paintComponent method of the panel
         drawPanel.repaint();
     }
+
+    @Override
+    public void newCar(String modelName) {
+        drawPanel.addVehicles(modelName);
+    }
+
+    @Override
+    public void removeCar(int index) {
+        drawPanel.repaint();
+        drawPanel.removeVehicles(index);
+    }
+
+
+
 /*
     @Override
     public void update(Motorized car) {

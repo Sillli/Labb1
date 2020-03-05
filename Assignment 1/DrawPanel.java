@@ -47,9 +47,18 @@ public class DrawPanel extends JPanel {
 
     }
 
-    void addVehicles(BufferedImage image, Point point) {
-        images.add(image);
-        points.add(point);
+    void addVehicles(String modelname) {
+        if (modelname == "Volvo240") {
+            images.add(volvoImage);
+            points.add(new Point(0, 0));
+        }
+        else if (modelname == "Saab95") {
+            images.add(saabImage);
+            points.add(new Point(0, 0));
+        } else if (modelname == "Scania") {
+            images.add(scaniaImage);
+            points.add(new Point(0, 0));
+        }
     }
 
     void removeVehicles(int index) {
